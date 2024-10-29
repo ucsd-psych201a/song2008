@@ -18,7 +18,7 @@ format:
 
 The Moses Illusion is a classic example of the metacognitive effects of fluency. Fluency has been a strong interest of mine since undergrad, and its applications relate to my research interests in understanding how we remember and believe misinformation. Until now, I have only learned methods of inducing fluency through repetition. I chose this paper (specifically experiment 1) because it instead induces fluency (i.e., ease of processing) through visual representation (e.g., easy vs. hard to read text fonts), and it can be applied to online misinformation studies in my future research endeavors.
 
-https://github.com/k7allen/song2008/tree/main
+https://github.com/ucsd-psych201a/song2008.git
 
 ## Methods
 
