@@ -1,0 +1,135 @@
+---
+title: "Replication of Study 1 by Song & Schwartz (2008, Social Cognition)"
+author: "Jae Kwon"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+format:
+  html:
+    toc: true
+    toc_depth: 3
+---
+
+<!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
+
+https://github.com/ucsd-psych201a/song2008/blob/main/original_paper/songschwarz2008.pdf
+
+
+
+## Introduction
+
+The chosen research article pertains to my research interests extensively. First,
+my research background up to this point has been on the illusory truth effect, where
+repetition increases belief, and this occurs because processing fluency is facilitated 
+during the process. People often rely on their heuristics, such as fluency, to make
+numerous decisions. Additionally, people often mistakenly think whatever is retrieved/processed faster is more true or legitimate. Hence, I believe basic mechanisms such as fluency is important to understand given the consequences of our behavior. The results of this experiment is promising because if we interrupt our initial quick-and-easy processing fluency, it leaves room for us to use our prior knowledge and make sounder decisions. Finally, given my current research interests
+in misinformation and how people's beliefs are formed and corrected, understanding fluency and its influence on belief will be useful.
+
+In order to replicate the experiment, we will need a couple of trivia statements to use. After establishing the trivia statements, we would need to manipulate the processing fluency through choosing an 'easy to read' font and 'hard to read' font. We would need to pretest the fonts to ensure that participants find them easy and difficult enough. Then, participants would be randomly assigned to the 'easy' condition and 'hard condition,' where they would answer the trivia statements. Finally, we would compare their error rates on the Moses illusion. We will be using Qualtrics to build and distribute the survey.
+
+I believe this is a pretty straightforward experiment, where I don't anticipate too many challenges (at least I hope!), especially given how robust the basic fluency effects are (e.g., there's research showing that facilitated fluency leads to increased belief even for implausible statements). Although, one challenge I do anticipate is that the Moses illusion example may not be as familiar to the younger generation (which could be our sample), where they don't know what the correct or incorrect answer is.
+
+
+## Methods
+
+### Main Experiment
+
+Note: Before conducting the main experiment, the authors pretested the stimuli
+to ensure that there was a perceptual difference (processing fluency) between
+the two conditions (easy to read font vs hard to read font).
+
+Thirty-two prolific participants participated for monetary compensation. They
+were randomly assigned to an easy- vs. difficult-to-read condition. The instructions (modeled after Erickson & Mattson, 1981) read, “You will a read couple of trivia questions and answer them. You can write the answer in the blank. In case you do not know the answer, please write 'don't know.' You may or may not encounter ill-formed questions which do not have correct answers if taken literally. For instance, you might see the question 'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question.“
+
+Depending on condition, participants were presented with two questions printed in a hard-to-read (Bush Script MT) or easy-to-read font (Arial). The first (control) question did not have a distortion. It read, “Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?“ (Switzerland). The second, distorted question read, “How many animals of each kind did Moses take on the Ark?“ (taken from Erickson & Mattson, 1981). This question replaces the correct actor, Noah, with Moses and should be answered “can't say.“ Answering “2“ indicates the Moses illusion.
+
+### Power Analysis
+
+Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
+
+### Planned Sample
+
+32 prolific participants
+
+### Materials
+
+"'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question.“
+
+“Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?“ (Switzerland).
+
+“How many animals of each kind did Moses take on the Ark?“
+(taken from Erickson & Mattson, 1981).
+
+These are direct quotes from the research article. It was followed precisely.
+
+### Procedure	
+
+Described in the "Main Experiment" section
+
+### Analysis Plan
+
+For our statistical test, we will use the z-test for proportions (i.e., test of proportions) to compare the proportions of two groups- easy-to-read vs. difficult-to-read font conditions. Specifically, for the distorted question (Moses Question), the proportion of participants who responded "2" and the proportion of participants who responded "can't say" in both conditions will be reported. Participants who do not complete the full study will be excluded from the analysis.
+
+
+
+**Clarify key analysis of interest here**  You can also pre-specify additional analyses you plan to do.
+
+The z-test of proportions comparing the proportions of "2" answers (i.e., fell for the illusion) for the distorted question between the easy-to-read condition vs hard-to-read condition will be the key analysis of interest. 
+
+### Differences from Original Study
+
+Our sample will be different than the original paper. Our sample will be online participants (prolific). The original study used undergraduates.
+
+Setting will be different. Ours will be online, their study was in person.
+
+### Methods Addendum (Post Data Collection)
+
+You can comment this section out prior to final report with data collection.
+
+#### Actual Sample
+
+32 prolific participants. We may or may not include an attention check for potential exclusion (original study didn't have it).
+
+#### Differences from pre-data collection methods plan
+  Any differences from what was described as the original plan, or “none”.
+
+"None"
+
+## Results
+
+
+### Data preparation
+
+Data will be downloaded and imported into R. We will clean the raw data using the Tidyverse package in R. Once cleaned, we will run the planned analysis.
+	
+```{r include=F}
+### Data Preparation
+
+#### Load Relevant Libraries and Functions
+
+#### Import data
+
+#### Data exclusion / filtering
+
+#### Prepare data for analysis - create columns etc.
+```
+
+### Confirmatory analysis
+
+As mentioned before, the key analysis of interest is the z-test of proportions comparing the proportions of "2" answers for the distorted question between the two font conditions. This analysis would allow us to determine whether there is a difference in the rate of producing the incorrect response (Moses Illusion) based on the difference in processing fluency between the two font conditions.
+
+The analyses as specified in the analysis plan.  
+
+*Side-by-side graph with original graph is ideal here*
+
+### Exploratory analyses
+
+Any follow-up analyses desired (not required).  
+
+## Discussion
+
+### Summary of Replication Attempt
+
+Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+
+### Commentary
+
+Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
