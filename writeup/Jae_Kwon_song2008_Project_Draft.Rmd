@@ -10,9 +10,9 @@ format:
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
-https://github.com/ucsd-psych201a/song2008/blob/main/original_paper/songschwarz2008.pdf
+[Github Repo Paper](https://github.com/ucsd-psych201a/song2008/blob/main/original_paper/songschwarz2008.pdf)
 
-
+[Github Repo Write Up](https://github.com/ucsd-psych201a/song2008/tree/main/writeup)
 
 ## Introduction
 
@@ -51,14 +51,15 @@ Original effect size, power analysis for samples to achieve 80%, 90%, 95% power 
 
 ### Materials
 
-"'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question.“
+"'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question.“ --> Pilot Question
 
-“Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?“ (Switzerland).
+“Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?“ (Switzerland). --> Undistorted version
 
 “How many animals of each kind did Moses take on the Ark?“
-(taken from Erickson & Mattson, 1981).
+(taken from Erickson & Mattson, 1981). --> Distorted version.
 
-These are direct quotes from the research article. It was followed precisely.
+These are direct quotes from the research article.
+
 
 ### Procedure	
 
@@ -66,19 +67,21 @@ Described in the "Main Experiment" section
 
 ### Analysis Plan
 
-For our statistical test, we will use the z-test for proportions (i.e., test of proportions) to compare the proportions of two groups- easy-to-read vs. difficult-to-read font conditions. Specifically, for the distorted question (Moses Question), the proportion of participants who responded "2" and the proportion of participants who responded "can't say" in both conditions will be reported. Participants who do not complete the full study will be excluded from the analysis.
+For our statistical test, we will use the z-test for proportions (i.e., test of proportions) to compare the proportions of two groups- easy-to-read vs. difficult-to-read font conditions. Specifically, for the distorted question (Moses Question), the proportion of participants who responded "2" and the proportion of participants who responded "can't say" in both conditions (easy vs hard font) will be reported. We will also report the proportion of "Switzerland"and "can't say" for the undistorted question in both conditions in the easy vs hard font conditions. The analyses will allow us to observe if low processing fluency helps us answer distorted questions correctly (while the low processing fluency could lead to more incorrect answers for the undistorted questions).
 
-
+Participants who do not complete the full study will be excluded from the analysis.
 
 **Clarify key analysis of interest here**  You can also pre-specify additional analyses you plan to do.
 
-The z-test of proportions comparing the proportions of "2" answers (i.e., fell for the illusion) for the distorted question between the easy-to-read condition vs hard-to-read condition will be the key analysis of interest. 
+The z-test of proportions comparing the proportions of "2" answers (i.e., fell for the illusion) for the distorted question between the easy-to-read condition vs hard-to-read condition will be the key analysis of interest. This will allow us to determine if low processing fluency attenuates the Moses Illusion (i.e., scrutinize information more and respond more correctly).
 
 ### Differences from Original Study
 
 Our sample will be different than the original paper. Our sample will be online participants (prolific). The original study used undergraduates.
 
 Setting will be different. Ours will be online, their study was in person.
+
+The original paper didn't have any exclusion criteria, but we will exclude participants who do not complete the full study.
 
 ### Methods Addendum (Post Data Collection)
 
@@ -98,7 +101,7 @@ You can comment this section out prior to final report with data collection.
 
 ### Data preparation
 
-Data will be downloaded and imported into R. We will clean the raw data using the Tidyverse package in R. Once cleaned, we will run the planned analysis.
+Data will be downloaded and imported into R. We will clean the raw data using the Tidyverse package in R (participants will be deidentified). Once cleaned, we will run the planned analysis.
 	
 ```{r include=F}
 ### Data Preparation
@@ -115,8 +118,6 @@ Data will be downloaded and imported into R. We will clean the raw data using th
 ### Confirmatory analysis
 
 As mentioned before, the key analysis of interest is the z-test of proportions comparing the proportions of "2" answers for the distorted question between the two font conditions. This analysis would allow us to determine whether there is a difference in the rate of producing the incorrect response (Moses Illusion) based on the difference in processing fluency between the two font conditions.
-
-The analyses as specified in the analysis plan.  
 
 *Side-by-side graph with original graph is ideal here*
 
