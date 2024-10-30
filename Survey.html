@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Experiment</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="welcome-screen">
+        <h1>Welcome to our study!</h1>
+        <p>We thank you for your participation. Please press Next to continue.</p>
+        <button id="next-button">Next</button>
+    </div>
 
-   
+    <script src="https://cdn.jsdelivr.net/npm/jspsych@6.3.1/jspsych.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspsych@6.3.1/plugins/jspsych-html-button-response.js"></script>
+    <script src="welcome.js"></script>
 </body>
 </html>
+// Initialize jsPsych
+const jsPsych = initJsPsych({
+    on_finish: function() {
+        // Redirect to the next part of your experiment here
+        console.log("Experiment finished.");
+    }
+});
+
+// Define the welcome trial
+const welcomeTrial = {
+    type: 'html-button-response',
+    stimulus: '<h1>Welcome to our study!</h1><p>We thank you for your participation. Please press Next to continue.</p>',
+    buttons: ['Next'],
+    on_finish: function() {
+        // You can add a callback here if needed
+    }
+};
+
+// Add the trial to the timeline
+jsPsych.addTimeline([welcomeTrial]);
+
+// Start the experiment when the Next button is clicked
+document.getElementById('next-button').onclick = function() {
+    jsPsych.run();
+};
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#welcome-screen {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
