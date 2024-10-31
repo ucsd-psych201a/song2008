@@ -134,3 +134,26 @@ Open the discussion section with a paragraph summarizing the primary result from
 ### Commentary
 
 Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+
+### Design Choices
+
+One --> processing fluency via font (easy vs hard to read)
+
+There was one measure (answer to the trivia questions) which was repeated once
+
+Between participants (randomly assigned to easy vs hard condition)
+
+A within subjects design could have impacted the results. Participants may not have been affected as much or as distinctly by low processing vs high processing fluency
+when the two conditions were presented one after the other.
+
+I believe they could have reduced demand characteristics more. The hard to read font
+the researchers chose could have given away the manipulation of the experiment because
+of how unusual it is, leading them to spend more time on the question and decreasing the rate of the Moses Illusion. They could have chosen a font that is harder than 'Ariel' but not as hard/unusual as 'brush script'
+
+I'm not sure if it was appropriate to give an example of a distorted question that should be answered "cant say" (rather than just telling participants to answer 'cant say' for a
+question where that would be applicable because it could make participants more alert to the font and question format in the subsequent experimental trials (main experiment).
+
+I also believe that they could have used more trials, participants, and stimuli
+to increase the validity and generalizability of the results. A major potential
+confound would be prior knowledge (whether people know the correct answer to the
+Moses question)
