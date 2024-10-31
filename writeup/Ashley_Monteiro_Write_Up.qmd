@@ -10,9 +10,41 @@ format:
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
-## Introduction
-
 [GitHub Repository](https://github.com/ucsd-psych201a/song2008.git)
+
+## Design Overview
+
+#### How many factors were manipulated?
+One, which was processing fluency via either easy to read or hard to read font.
+
+#### How many measures were taken?
+One, which was the answer to the trivia questions.
+
+#### Did it use a within-participants or between-participants design?
+Between participants. 
+
+#### Were measures repeated?
+No.
+
+#### What would have been the consequence of changing one of these decisions? (e.g. moving from within to between participants). Could it have been either way?
+A within-subjects design might have definitely influenced the results. Participants may not have been as distinctly affected by low processing versus high processing fluency when the two conditions were presented consecutively.
+
+#### Were steps taken to reduce demand characteristics?
+I definitely think the original authors could have minimized demand characteristics further. The hard to read font selected by the researchers may have revealed the experiment's manipulation due to its unusual nature; possibly causing participants to spend more time on the questions and therefore decreasing the occurrence of the Moses Illusion. I believe a font that is more challenging than Arial...but not as unconventional as Brush Script would have been a better choice.
+
+#### How would you critique the design?
+
+I don't think it was good idea for the original authors provided an example of a distorted question that should be answered with "can't say". This might make participants more aware of the font and question format in the subsequent trials of the main experiment.
+
+#### Can you think of any potential confounds to the study?
+
+I think a significant potential confound to this study is prior knowledge, specifically whether or not  participants are aware of the correct answer to the Moses question.
+
+#### Do you see any limitations to generalizability?
+
+I believe the original authors could've included more trials, participants, and even stimuli to enhance the validity and generalizability of the results. A significant potential confound is prior knowledge, specifically whether participants are aware of the correct answer to the Moses question.
+
+## Introduction
 
 As a researcher interested in social psychology I found the paper, “Fluency and the Detection of Misleading Questions: Low Processing Fluency Attenuates The Moses Illusion” to be particularly interesting. Although I am primarily an emotion researcher, I enjoy incorporating topics such as user experience, social media, and fluency effects into my work. A big reason I chose this paper was because I don’t have much experience in this exact type of work. Instead of doing studies that I will run all the time, I’ve decided to use this project as an opportunity to try something new. By engaging in this research I hope to not only broaden my understanding of cognitive processes, but also enrich my upcoming research…especially my first year project!
 
