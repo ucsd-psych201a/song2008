@@ -1,0 +1,129 @@
+---
+title: "Replication of Fluency and the Detection of Misleading Questions: Low Processing Fluency Attenuates The Moses Illusion by Hyunjin Song & Norbert Schwarz (2008, Social Cognition)"
+author: "Ashley Monteiro (asmonteiro@ucsd.edu)"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+format:
+  html:
+    toc: true
+    toc_depth: 3
+---
+
+<!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
+
+[GitHub Repository](https://github.com/ucsd-psych201a/song2008.git)
+
+## Design Overview
+
+#### How many factors were manipulated?
+One, which was processing fluency via either easy to read or hard to read font.
+
+#### How many measures were taken?
+One, which was the answer to the trivia questions.
+
+#### Did it use a within-participants or between-participants design?
+Between participants. 
+
+#### Were measures repeated?
+No.
+
+#### What would have been the consequence of changing one of these decisions? (e.g. moving from within to between participants). Could it have been either way?
+A within-subjects design might have definitely influenced the results. Participants may not have been as distinctly affected by low processing versus high processing fluency when the two conditions were presented consecutively.
+
+#### Were steps taken to reduce demand characteristics?
+I definitely think the original authors could have minimized demand characteristics further. The hard to read font selected by the researchers may have revealed the experiment's manipulation due to its unusual nature; possibly causing participants to spend more time on the questions and therefore decreasing the occurrence of the Moses Illusion. I believe a font that is more challenging than Arial...but not as unconventional as Brush Script would have been a better choice.
+
+#### How would you critique the design?
+
+I don't think it was good idea for the original authors provided an example of a distorted question that should be answered with "can't say". This might make participants more aware of the font and question format in the subsequent trials of the main experiment.
+
+#### Can you think of any potential confounds to the study?
+
+I think a significant potential confound to this study is prior knowledge, specifically whether or not  participants are aware of the correct answer to the Moses question.
+
+#### Do you see any limitations to generalizability?
+
+I believe the original authors could've included more trials, participants, and even stimuli to enhance the validity and generalizability of the results. A significant potential confound is prior knowledge, specifically whether participants are aware of the correct answer to the Moses question.
+
+## Introduction
+
+As a researcher interested in social psychology I found the paper, “Fluency and the Detection of Misleading Questions: Low Processing Fluency Attenuates The Moses Illusion” to be particularly interesting. Although I am primarily an emotion researcher, I enjoy incorporating topics such as user experience, social media, and fluency effects into my work. A big reason I chose this paper was because I don’t have much experience in this exact type of work. Instead of doing studies that I will run all the time, I’ve decided to use this project as an opportunity to try something new. By engaging in this research I hope to not only broaden my understanding of cognitive processes, but also enrich my upcoming research…especially my first year project!
+
+The stimuli and procedures I need for the pretest would all be online, possibly done over Qualtrics. I would first test both the font type and color to see how/if they affect reading ease. This would be done by using five undergraduates per each condition. One sentence will be printed in grey brush script while the other in black Arial. They would rate on a scale of 1-7 the ease in which they could read the text. 1 being very difficult 7 being very easy. When it comes to the main experiment I would recruit 32 more undergrads and randomly assign them to either the easy to read or difficult to read conditions. Then I will have them both read and answer a couple of trivia questions correlating with their given group, easy or difficult to read. The first question would be a control question while the second question would be the distroted question.
+
+A potential challenge of this study may be the trivia questions that were used as stimuli in the previous experiment. My worry is that people may not understand them. Other than that though, I am quite confident this experiment will run smoothly. However, something that may be challenging for me would be R, just because I am so new to coding.
+
+## Methods
+
+### Power Analysis
+
+Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
+
+### Planned Sample
+
+n = 32
+
+### Materials
+
+The study will be conducted online, therefore, there are no physical materials necessary.
+
+### Procedure	
+
+Qouted from the original paper, "Thirty-two undergraduates participated for course credit. They were randomly assigned to an easy- vs. difficult-to-read condition. The instructions (modeled after Erickson & Mattson, 1981) read, “You will a read couple of trivia questions and answer them. You can write the answer in the blank. In case you do not know the answer, please write 'don't know.' You may or may not encoun- ter ill-formed questions which do not have correct answers if taken literally. For instance, you might see the question 'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question.“ Depending on condition, participants were presented with two questions print- ed in a hard-to-read or easy-to-read font, as described above. The first (control) question did not have a distortion. It read, “Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?“ (Switzerland). The second, distorted question read, “How many animals of each kind did Moses take on the Ark?“ (taken from Erickson & Mattson, 1981). This question replaces the correct actor, Noah, with Moses and should be answered “can’t say.“ Answering “2“ indicates the Moses illusion."
+
+Only exception to the original procedure are the participants. Participants were recruited via Prolific, and were not undergraduates participating for course credit. 
+
+### Analysis Plan
+
+Qouted from the original paper, "To assess the robustness of the results across both experiments, we used Rosen- thal's (1978) procedures for combining results of independent studies. This analy- sis confirms the overall reliability of the observed patterns. When the question was distorted, participants were less likely to give an erroneous substantive answer, z = 3.26, p < .002, and more likely to recognize the distortion (as indicated by answer- ing 'can't say'), z = 2.89, p < .004, when the font was difficult rather than easy to read. When the question was undistorted, participants were less likely to give a cor- rect substantive answer, z = 2.5, p < .02, and more likely to report that they “don't know, z = 2.45, p < .02, when the font was difficult rather than easy to read."
+
+The z-test comparing both proportions of “2” answers for the distorted question between the two conditions is the key analysis of interest.
+
+### Differences from Original Study
+
+Instead of recruiting undergraduates for course credit, we will being recruiting participants via Prolific, an online research platform. We do not believe this change will have any impact on the data.
+
+### Methods Addendum (Post Data Collection)
+
+You can comment this section out prior to final report with data collection.
+
+#### Actual Sample
+  Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+
+#### Differences from pre-data collection methods plan
+  Any differences from what was described as the original plan, or “none”.
+
+## Results
+
+### Data preparation
+
+Data will be downloaded into R and cleaned using the R package, TidyVerse.
+	
+```{r include=F}
+### Data Preparation
+
+#### Load Relevant Libraries and Functions
+
+#### Import data
+
+#### Data exclusion / filtering
+
+#### Prepare data for analysis - create columns etc.
+```
+
+### Confirmatory analysis
+
+The primary analysis of interest is the z-test of proportions. This compares the proportion of "2" responses to the distorted question between the two conditions. Additionally, this analysis aims to determine whether the rate of this incorrect response—indicative of the Moses Illusion—varies due to differences in processing fluency between the two different fonts used in the conditions.
+
+### Exploratory analyses
+
+Any follow-up analyses desired (not required).  
+
+## Discussion
+
+### Summary of Replication Attempt
+
+Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+
+### Commentary
+
+Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
