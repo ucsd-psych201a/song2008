@@ -109,3 +109,22 @@ Open the discussion section with a paragraph summarizing the primary result from
 ### Commentary
 
 Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt. None of these need to be long.
+
+## Design Overview
+
+- One factor was manipulated (processing fluency via font readability).
+
+- One measure was taken (answer to trivia questions).
+
+- This study used a between-participants design.
+
+- Yes, the responses to the trivia questions were measured twice per participant. (They answered 2 questions, one distorted and one non distorted).
+
+- Being exposed to both font types could have revealed the purpose of the study and contaminate responses. I think it would be hard to accomplish this study within-participants without risking demand characteristics. However, I think adding more trials could help conceal the purpose if they chose to 
+
+- It is unclear whether they made an effort to reduce demand characteristics, but likely not. Reading the trivia question in Brush Script could be enough to reveal the purpose because we don't see that font used much. 
+
+- One critique of this design is the limited trials. I think this study would be more interesting with the distorted Moses question embedded in a set of 20-30 trials. I also think this might be difficult to generalize to today's world because cultural knowledge has changed so much. More distorted questions should be used mixed in with nondistorted questions in a larger trial set. A potential confound could be prior (biblical) knowledge. This could impact processing fluency and was not accounted for in the study. 
+
+- This study has limited generalizability for a few reasons. One, the sample was 32 Psychology undergraduates, so we cannot generalize much beyond this population. Two, without testing a range of distorted questions, it might be hard to generalize beyond the Moses illusion itself. 
+
