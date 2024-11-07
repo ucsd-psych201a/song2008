@@ -56,7 +56,7 @@ A potential challenge of this study may be the trivia questions that were used a
 
 ### Power Analysis
 
-Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
+Original effect size was never reported. The original studies achieved power is 59% with 32 participants, to achieve 80% we calculated that we need 52 participants. 
 
 ### Planned Sample
 
@@ -64,7 +64,7 @@ n = 32
 
 ### Materials
 
-The study will be conducted online, therefore, there are no physical materials necessary.
+The study will be conducted online, therefore, there are no physical materials necessary. 
 
 ### Procedure	
 
