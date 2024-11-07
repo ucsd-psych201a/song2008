@@ -9,18 +9,22 @@
  <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@2.0.0"></script>
  <script src="https://unpkg.com/@jspsych/plugin-instructions@2.0.0"></script>
  <script src="https://unpkg.com/@jspsych/plugin-survey-text@2.0.0"></script>
+ <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
  <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
   
 </head>
 <body>
 </body>
 <script>
-  
+
 var jsPsych = initJsPsych({
   on_finish: function() {
     jsPsych.data.displayData();
   }
 }); 
+
+const subject_id = jsPsych.randomization.randomID(10);
+              const filename = `${subject_id}.csv`;
 
 var timeline = [];
 
@@ -67,11 +71,21 @@ var instructions2 = {
     show_clickable_nav: true
 };
 
+const save_data = {
+                type: jsPsychPipe,
+                action: "save",
+                experiment_id: "xqSTxMFpVLGx",
+                filename: filename,
+                data_string: ()=>jsPsych.data.get().csv()
+              };
+
 timeline.push(instructions1);
 
 timeline.push(question1,question2); 
 
 timeline.push(instructions2);
+
+timeline.push(save_data);
 
 jsPsych.run(timeline);
 
