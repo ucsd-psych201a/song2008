@@ -60,7 +60,7 @@ Original effect size was never reported. The original studies achieved power is 
 
 ### Planned Sample
 
-n = 32
+n = 52
 
 ### Materials
 
