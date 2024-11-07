@@ -7,7 +7,7 @@ author:
   - "Kosta Boskovic (koboskovic@ucsd.edu)"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format: 
-  pdf:
+  html:
     toc: true
     toc_depth: 3
 ---
@@ -18,19 +18,19 @@ format:
 
 The Moses Illusion is a classic example of the metacognitive effects of fluency. Fluency has been a strong interest of mine since undergrad, and its applications relate to my research interests in understanding how we remember and believe misinformation. Until now, I have only learned methods of inducing fluency through repetition. I chose this paper (specifically experiment 1) because it instead induces fluency (i.e., ease of processing) through visual representation (e.g., easy vs. hard to read text fonts), and it can be applied to online misinformation studies in my future research endeavors.
 
-https://github.com/ucsd-psych201a/song2008.git
+<https://github.com/ucsd-psych201a/song2008.git>
 
 ## Methods
 
 ### Power Analysis
 
-Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size. Considerations of feasibility for selecting planned sample size.
+The authors did not report an effect size. A post-hoc power analysis indicated their experiment achieved 60% power. Based on a prior power analysis, a sample size of 52 is required to achieve 80% power. This is a feasible sample size.
 
 ### Planned Sample
 
-Pilot: In line with the original study, the pilot sample will be 10 Prolific users.
+Pilot: The pilot sample will be 10 participants.
 
-Main Experiment: In line with the original study, 32 Prolific users will participate for monetary compensation.
+Main Experiment: Fifty two Prolific users (26 in each condition) will participate for monetary compensation.
 
 ### Materials
 
@@ -38,7 +38,7 @@ Stimuli: The stimuli set will consist of 2 sets each containing two questions wr
 
 ### Procedure
 
-Pilot: Five Prolific users will read the sentence “Switzerland is famous for cuckoo clocks, banks and pocket knives“ printed in grey Brush Script MT ont with font size 12; another five will read the same sentence in black Arial font with font size 12. Participants will rate the ease they can read the text on a scale from 1 (very difficult) to 7 (very easy).
+Pilot: We will test the readability of the different fonts as a part of the pilot for the main experiment. Within the main experiment pilot, we will have Five Prolific users will read the sentence “Switzerland is famous for cuckoo clocks, banks and pocket knives“ printed in grey Brush Script MT font with font size 12; another five will read the same sentence in black Arial font with font size 12. We will ask our pilot participants to report the ease they can read the text on a scale from 1 (very difficult) to 7 (very easy) as well as any errors they find in the experiment.
 
 Main experiment: This experiment will be conducted online through a JSPsych survey experiment on Prolific. Participants will be randomly assigned to the easy vs hard-to-read conditions. They will either see the easy to read text font versions of the two questions or the hard to read versions of the trivia questions. They will also be informed that some of the questions they encounter might not have right answers and encouraged to answer by selecting ‘can’t say’ when this happens.
 
@@ -56,7 +56,7 @@ The original researchers did not include information on cleaning or exclusion ru
 
 ### Differences from Original Study
 
-Pliot differences: Instead of piloting with undergraduates in person, we are piloting (pretesting) online via Prolific.
+Pilot differences: Our pilot sample will not consist of just undergraduates.
 
 Main experiment differences: Instead of running the experiment with undergraduate participants in person, 32 Prolific users will complete this experiment online.
 
@@ -118,7 +118,7 @@ Add open-ended commentary (if any) reflecting (a) insights from follow-up explor
 
 - This study used a between-participants design.
 
-- Yes, the responses to the trivia questions were measured twice per participant. (They answered 2 questions, one distorted and one non distorted).
+- Yes, their responses to the trivia questions were measured twice per participant. (They answered 2 questions, one distorted and one non distorted).
 
 - Being exposed to both font types could have revealed the purpose of the study and contaminate responses. I think it would be hard to accomplish this study within-participants without risking demand characteristics. However, I think adding more trials could help conceal the purpose if they chose to 
 
@@ -127,4 +127,3 @@ Add open-ended commentary (if any) reflecting (a) insights from follow-up explor
 - One critique of this design is the limited trials. I think this study would be more interesting with the distorted Moses question embedded in a set of 20-30 trials. I also think this might be difficult to generalize to today's world because cultural knowledge has changed so much. More distorted questions should be used mixed in with nondistorted questions in a larger trial set. A potential confound could be prior (biblical) knowledge. This could impact processing fluency and was not accounted for in the study. 
 
 - This study has limited generalizability for a few reasons. One, the sample was 32 Psychology undergraduates, so we cannot generalize much beyond this population. Two, without testing a range of distorted questions, it might be hard to generalize beyond the Moses illusion itself. 
-
