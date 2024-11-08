@@ -57,6 +57,17 @@ var question2 = {
   ]
 };
 
+var question3 = {
+  type: jsPsychSurveyText,
+  questions: [
+    {
+      prompt: "<span style='font-family: Arial, sans-serif;font-size: 30px;'Please type 'Arial' into the textbox below.</span>",
+      placeholder: 'Type Arial here',
+      required: true
+    }
+  ]
+};
+
 var instructions2 = {
  type: jsPsychInstructions,
  pages: [
@@ -77,7 +88,7 @@ const save_data = {
 
 timeline.push(instructions1);
 
-timeline.push(question1,question2); 
+timeline.push(question1,question2,question3); 
 
 timeline.push(instructions2);
 
