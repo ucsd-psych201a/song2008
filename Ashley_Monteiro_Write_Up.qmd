@@ -12,6 +12,66 @@ format:
 
 [GitHub Repository](https://github.com/ucsd-psych201a/song2008.git)
 
+## Project Progress Check #1
+
+Below are the analyses I ran on our pilot data.
+
+```{r}
+# loading libraries
+library(dplyr)
+
+# reading data
+data <- read.csv("PilotA.csv")
+
+# preparing data
+difficult_data <- subset(data, Condition == "Brush")
+easy_data <- subset(data, Condition == "Arial")
+
+# z-test for proportion of "2" answers
+prop_difficult_2 <- mean(difficult_data$Distorted == "2")
+prop_easy_2 <- mean(easy_data$Distorted == "2")
+
+#combined standard error
+n_difficult <- nrow(difficult_data)
+n_easy <- nrow(easy_data)
+p_combined <- (sum(difficult_data$Distorted == "2") + sum(easy_data$Distorted == "2")) / (n_difficult + n_easy)
+se_combined <- sqrt(p_combined * (1 - p_combined) * (1/n_difficult + 1/n_easy))
+
+#z-test
+z_score <- (prop_difficult_2 - prop_easy_2) / se_combined
+p_value <- 2 * (1 - pnorm(abs(z_score)))
+
+cat("Z-score for comparison of '2' answers:", z_score, "\nP-value:", p_value, "\n")
+
+# meta-analysis using rosenthal's methods
+z_values <- c(3.26, 2.89, 2.5, 2.45)
+combined_z <- sqrt(sum(z_values^2))
+combined_p_value <- 2 * (1 - pnorm(combined_z))
+
+cat("Combined Z-score using Rosenthal's method:", combined_z, "\nCombined P-value:", combined_p_value, "\n")
+
+```
+```{r}
+
+# making the plots
+
+library(ggplot2)
+
+proportions <- data.frame(
+  Condition = c("Difficult", "Easy"),
+  Proportion = c(prop_difficult_2, prop_easy_2)
+)
+
+ggplot(proportions, aes(x = Condition, y = Proportion, fill = Condition)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  ylim(0, 1) +
+  labs(title = "Proportion of '2' Answers by Font Condition",
+       x = "Font Condition",
+       y = "Proportion of '2' Answers") +
+  theme_minimal()
+
+```
+
 ## Design Overview
 
 #### How many factors were manipulated?
