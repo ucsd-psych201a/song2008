@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Responding to trivia questions</title>
+ <script src="https://unpkg.com/jspsych@8.0.0"></script>
+ <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.0.0"></script>
+ <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@2.0.0"></script>
+ <script src="https://unpkg.com/@jspsych/plugin-instructions@2.0.0"></script>
+ <script src="https://unpkg.com/@jspsych/plugin-survey-text@2.0.0"></script>
+ <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
+ <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
+  
+</head>
+<body>
+</body>
+<script>
+
+var jsPsych = initJsPsych();
+
+const subject_id = jsPsych.randomization.randomID(10);
+              const filename = `${subject_id}.csv`;
+
+var timeline = [];
+
+var instructions1= {
+ type: jsPsychInstructions,
+ pages: [
+    'Welcome to the experiment. Click next to begin.',
+    'IRB Consent form, Click the next button to agree.',
+    'You will now begin the study. Click next read important instructions.',
+    '<h1>Instructions</h1> <p>You will read a couple of trivia questions and answer them. You can write the answer in the textbox provided. In case you do not know the answer, please type "don\'t know". You may or may not encounter ill-formed questions which do not have correct answers if taken literally.</p><p>For instance, you might see the question "Why was President Gerald Ford forced to resign his office?" In fact, Gerald Ford was not forced to resign. Please, type "can\'t say" for this type of question.'
+    ],
+    show_clickable_nav: true
+};
+
+var question1 = {
+  type: jsPsychSurveyText,
+  questions: [
+    {
+      prompt: "<span style='font-family: Arial, sans-serif; font-size: 30px;'>Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?</span>",
+      placeholder: 'Type your answer into the text box',
+      required: true
+    }
+  ]
+};
+
+var question2 = {
+  type: jsPsychSurveyText,
+  questions: [
+    {
+      prompt: "<span style='font-family: Arial, sans-serif;font-size: 30px;'>How many animals of each kind did Moses take on the ark?</span>",
+      placeholder: 'Type your answer into the text box',
+      required: true
+    }
+  ]
+};
+
+var instructions2 = {
+ type: jsPsychInstructions,
+ pages: [
+    'You have now finished the experiment. Click next for important information.',
+    'Thank you for participating in our study on processing fluency. You were randomly assigned to a hard-to-read or easy-to-read font. We are interested in how the ease of reading the font may have impacted how you answered the trivia questions. If you have any questions about this study, please feel free to contact one of the following researchers: Katherine Allen (k7allen@ucsd.edu), Kosta Boskovic (kboskovic@ucsd.edu), Jae Kwon (jwkwon@ucsd.edu), Ashley Monteiro (asmonteiro@ucsd.edu), or Bria Long (brlong@ucsd.edu). Thank you again for your time and cooperation.' +
+    '<br>' 
+    ],
+    show_clickable_nav: true
+};
+
+const save_data = {
+                type: jsPsychPipe,
+                action: "save",
+                experiment_id: "xqSTxMFpVLGx",
+                filename: filename,
+                data_string: ()=>jsPsych.data.get().csv()
+              };
+
+timeline.push(instructions1);
+
+timeline.push(question1,question2); 
+
+timeline.push(instructions2);
+
+timeline.push(save_data);
+
+jsPsych.run(timeline);
+
+</script>
+</html>
