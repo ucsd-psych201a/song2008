@@ -170,6 +170,24 @@ Even though the effect was not statistically significant (due to small sample si
 our preliminary data/results indicated that more people fell for the Moses illusion
 in the easy condition compared to the hard condition (indicated by the proportions).
 
+library(ggplot2)
+
+proportions_data <- data.frame(
+  Condition = c("Arial (Easy)", "Brush (Hard)"),
+  Proportion = c(proportion_arial, proportion_brush)
+)
+
+ggplot(proportions_data, aes(x = Condition, y = Proportion, fill = Condition)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Proportion of '2' Answers by Condition",
+    x = "Condition",
+    y = "Proportion of '2' Answers"
+  ) +
+  theme_minimal() +
+  scale_fill_manual(values = c("Arial (Easy)" = "skyblue", "Brush (Hard)" = "salmon")) +
+  guides(fill = FALSE)
+
 ### Confirmatory analysis
 
 As mentioned before, the key analysis of interest is the z-test of proportions comparing the proportions of "2" answers for the distorted question between the two font conditions. This analysis would allow us to determine whether there is a difference in the rate of producing the incorrect response (Moses Illusion) based on the difference in processing fluency between the two font conditions.
