@@ -36,6 +36,12 @@ Main Experiment: Fifty two Prolific users (26 in each condition) will participat
 
 Stimuli: The stimuli set will consist of 2 sets each containing two questions written in two contrasting fonts. One question will contain a distortion while the other will not. "Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?" (A: Switzerland) is the undistorted version, while "How many animals of each kind did Moses take on the Ark?" (A: can’t say) is the distorted version.
 
+Links to jsPsych experiments: 
+
+Hard-to-read condition: https://ucsd-psych201a.github.io/song2008/Trivia_Q2.html
+
+Easy-to-read condition: https://ucsd-psych201a.github.io/song2008/Trivia_Q1.html
+
 ### Procedure
 
 Pilot: We will test the readability of the different fonts as a part of the pilot for the main experiment. Within the main experiment pilot, we will have Five Prolific users will read the sentence “Switzerland is famous for cuckoo clocks, banks and pocket knives“ printed in grey Brush Script MT font with font size 12; another five will read the same sentence in black Arial font with font size 12. We will ask our pilot participants to report the ease they can read the text on a scale from 1 (very difficult) to 7 (very easy) as well as any errors they find in the experiment.
@@ -93,6 +99,9 @@ Data will be downloaded and imported into R, deidentified, and cleaned using Tid
 ### Confirmatory analysis
 
 We are interested in testing if font readability (fluency) alters frequency of the Moses illusion. So, using a z-score approach, we want to know if this rate of proportion differs based on processing fluency. The key analysis of interest here is the z-score comparison of the proportions of "2" answers for the distorted question between the two conditions (easy vs. hard to read fonts).
+
+Pilot results: 
+
 
 *Side-by-side graph with original graph is ideal here*
 
