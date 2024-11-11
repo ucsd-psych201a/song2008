@@ -14,6 +14,13 @@ format:
 
 [Github Repo Write Up](https://github.com/ucsd-psych201a/song2008/tree/main/writeup)
 
+Project Paradigm Links (one for each condition):
+
+https://ucsd-psych201a.github.io/song2008/Trivia_Q1.html (easy condition)
+
+https://ucsd-psych201a.github.io/song2008/Trivia_Q2.html (difficult condition)
+
+
 ## Introduction
 
 The chosen research article pertains to my research interests extensively. First,
@@ -43,8 +50,7 @@ Depending on condition, participants were presented with two questions printed i
 
 ### Power Analysis
 
-The originial effect size was not reported. We computed the previous study's power to be 59%. For our study, in order to achieve
-80% power, we need a total of 52 participants (26 each in each font condition)
+Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
 
 ### Planned Sample
 
@@ -115,6 +121,54 @@ Data will be downloaded and imported into R. We will clean the raw data using th
 
 #### Prepare data for analysis - create columns etc.
 ```
+
+### Pilot Data Code
+```
+library(tidyverse)
+
+pilot_data <- read_csv("PilotA.csv")
+
+# Filter data for the two conditions and count the "2" answers
+arial_easy <- pilot_data %>%
+  filter(Condition == "Arial", Distorted == 2) %>%
+  nrow()
+
+brush_hard <- pilot_data %>%
+  filter(Condition == "Brush", Distorted == 2) %>%
+  nrow()
+
+# Calculate the total counts for each condition
+arial_total <- pilot_data %>%
+  filter(Condition == "Arial") %>%
+  nrow()
+
+brush_total <- pilot_data %>%
+  filter(Condition == "Brush") %>%
+  nrow()
+
+# Calculate proportions
+proportion_arial <- arial_easy / arial_total
+proportion_brush <- brush_hard / brush_total
+
+# Overall proportion for pooling
+p_pool <- (arial_easy + brush_hard) / (arial_total + brush_total)
+
+# Z-test for two proportions
+z_value <- (proportion_arial - proportion_brush) / sqrt(p_pool * (1 - p_pool) * (1 / arial_total + 1 / brush_total))
+
+# Calculate p-value (two-tailed)
+p_value <- 2 * (1 - pnorm(abs(z_value)))
+```
+
+### Pilot Data Results
+
+Proportion of "2" answers in Arial (easy): 0.5
+Proportion of "2" answer in Brush (hard): 0.33
+Z-value: 0.59, p = 0.56
+
+Even though the effect was not statistically significant (due to small sample size),
+our preliminary data/results indicated that more people fell for the Moses illusion
+in the easy condition compared to the hard condition (indicated by the proportions).
 
 ### Confirmatory analysis
 
