@@ -95,15 +95,81 @@ Data will be downloaded and imported into R, deidentified, and cleaned using Tid
 
 #### Prepare data for analysis - create columns etc.
 ```
+### Pilot A Code
 
+```{r}
+# loading libraries
+library(tidyverse)
+
+# reading data
+library(readr)
+PilotA <- read_csv("~/Documents/GitHub/song2008/data/PilotA.csv")
+View(PilotA)
+
+# preparing data
+arial_easy <- PilotA %>%
+  filter(Condition == "Arial", Distorted == 2) %>%
+  nrow()
+
+brush_hard <- PilotA %>%
+  filter(Condition == "Brush", Distorted == 2) %>%
+  nrow()
+
+# z-test for proportion of "2" answers
+prop_difficult_2 <- mean(arial_easy == "2")
+prop_easy_2 <- mean(brush_hard == "2")
+
+# Calculate the total counts for each condition
+arial_total <- PilotA %>%
+  filter(Condition == "Arial") %>%
+  nrow()
+
+brush_total <- PilotA %>%
+  filter(Condition == "Brush") %>%
+  nrow()
+
+# Calculate proportions
+proportion_arial <- arial_easy / arial_total
+proportion_brush <- brush_hard / brush_total
+
+# Overall proportion for pooling
+p_pool <- (arial_easy + brush_hard) / (arial_total + brush_total)
+
+# Z-test for two proportions
+z_value <- (proportion_arial - proportion_brush) / sqrt(p_pool * (1 - p_pool) * (1 / arial_total + 1 / brush_total))
+
+# Calculate p-value (two-tailed)
+p_value <- 2 * (1 - pnorm(abs(z_value)))
+
+library(ggplot2)
+
+proportions <- data.frame(
+  Condition = c("Easy-to-read", "Difficult-to-read"),
+  Proportion = c(proportion_arial, proportion_brush)
+)
+
+ggplot(proportions, aes(x = Condition, y = Proportion, fill = Condition)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  ylim(0, 1) +
+  labs(title = "Pilot A",
+       x = "Condition",
+       y = "Proportion of '2' Answers") +
+  theme_minimal()
+
+```
 ### Confirmatory analysis
 
 We are interested in testing if font readability (fluency) alters frequency of the Moses illusion. So, using a z-score approach, we want to know if this rate of proportion differs based on processing fluency. The key analysis of interest here is the z-score comparison of the proportions of "2" answers for the distorted question between the two conditions (easy vs. hard to read fonts).
 
-Pilot results: 
-
-
 *Side-by-side graph with original graph is ideal here*
+
+###Pilot results
+
+The proportion of "2" answers in the easy-to-read condition (Arial) = 0.5
+Proportion of "2" answer in the hard-to-read condition (Brush MT)  =  0.33
+Z-value: 0.59, p = 0.56
+
+This pilot data is promising. Even in this small sample, we see that based on the proportions, fewer pilot participants fell for the Moses illusion in the difficult-to-read condition than the easy-to-read condition. Albeit underpowered and non-statistically significant due to the small sample size, I am hopeful that this experiment will replicate. Additionally, we now have confirmation that our online experiments work. 
 
 ### Exploratory analyses
 
