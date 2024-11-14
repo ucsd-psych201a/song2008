@@ -88,7 +88,13 @@ const save_data = {
                 data_string: ()=>jsPsych.data.get().csv()
               };
 
-
+var final_trial = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `<p>You've finished the last task. Thanks for participating!</p>
+    <p><a href="https://app.prolific.com/submissions/complete?cc=C7ZNIQ5B">Click here to return to Prolific and complete the study</a>.</p>`,
+  choices: "NO_KEYS"
+}
+ 
 timeline.push(instructions1);
 
 timeline.push(question1,question2,question3); 
@@ -96,6 +102,8 @@ timeline.push(question1,question2,question3);
 timeline.push(instructions2);
 
 timeline.push(save_data);
+
+timeline.push(final_trial)
 
 jsPsych.run(timeline);
 
