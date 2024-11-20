@@ -12,11 +12,17 @@
  <script src="https://unpkg.com/@jspsych/plugin-external-html@1.1.3"></script>
  <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
  <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
-  
+ <style>
+  html {
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+</style>
 </head>
 <body>
 </body>
 <script>
+
 
 var jsPsych = initJsPsych();
 
@@ -34,41 +40,38 @@ consentHTML = {
       ].join(' '),
       'str2': ["<span style='font-family: Times New Roman;font-size: 20px;'><b><p id='legal'>Consent to Participate</p></b>",
         "<p id='legal'>You are being invited to participate in a research study titled &quot;Reproducibility of Psychological Science and Instruction.&quot; \
-          This study is being done by Dr. Bria Long from UC San Diego and associated graduate students in Experimental Methods course. \
+          <p>This study is being done by Dr. Bria Long from UC San Diego and associated graduate students in Experimental Methods course. \
           You were selected to participate in this study because you are an adult in the U.S. and have been a represented population in previous psychology studies. \
           The purpose of this study is to better understand how well previously published studies in the psychological field replicate online and with different populations. \
-          Your participation in this research should last approximately 5-30 minutes.  If you agree to take part in this study, you may be asked to view a set of stimuli, \
+          Your participation in this research should last approximately 5-30 minutes.</p>  <p>If you agree to take part in this study, you may be asked to view a set of stimuli, \
           including pictures, sounds, written text, or videos and then giving some responses via key-presses, verbally, or with paper-and-pencil. We may also observe your \
           choices or preferences among an array of stimuli.  These stimuli will be taken directly from or closely adapted from studies that already exist in the published \
           psychological literature. Stimuli will include, e.g., pictures of objects and human faces, audio and video clips, short text passages, etc. None of the stimuli \
           will be disturbing, threatening, or offensive. The online and in-person experiments described in this protocol will take no more than 30 minutes. An example game \
           you might play would be to click on an image on the screen that matches a word you hear being said out loud. Your total expected time commitment for this study is \
-          between 5-30 minutes, and is specified in the study description.</p></span>"].join(' '),
-      'str3': [ "<span style='font-family: Times New Roman;font-size: 20px;'><p> Your participation in this study is completely voluntary and you can withdraw at any time. \
+          between 5-30 minutes, and is specified in the study description.</p> <p> Your participation in this study is completely voluntary and you can withdraw at any time. \
           Choosing not to participate or withdrawing will result in no penalty or loss of benefits to which you are entitled. \
-          You are free to skip any question that you choose. </p>\
-          <p>We will not be asking for any personally identifying information, and we will handle responses as confidentially as possible. Your SONA or Prolific IDs will \
+          You are free to skip any question that you choose. </p>\ <p>We will not be asking for any personally identifying information, and we will handle responses as confidentially as possible. Your SONA or Prolific IDs will \
             never be tied to your responses on this survey. However, we cannot guarantee the confidentiality of information transmitted over the Internet. To minimize this\
             risk, data containing anything that might be personally identifiable (e.g. Prolific IDs or IP addresses) will be encrypted on transfer and storage and will only \
             be accessible to qualified lab personnel. We will be keeping data collected as part of this experiment indefinitely. This anonymized data (containing neither Prolific \
-            IDs nor IP addresses) may be shared with the scientific community or with other participants to be used as stimuli in future studies. </p></span>"].join(" "),
-      'str4': "<span style='font-family: Times New Roman;font-size: 20px;'><p>If you have questions about this project or if you have a research-related problem, you may contact the researcher(s),  Dr. Bria Long, brlong@ucsd.edu. \
+            IDs nor IP addresses) may be shared with the scientific community or with other participants to be used as stimuli in future studies. <p>If you have questions about this project or if you have a research-related problem, you may contact the researcher(s),  Dr. Bria Long, brlong@ucsd.edu. \
         If you have any questions concerning your rights as a research subject, you may contact the UC San Diego Office of IRB Administration at irb@ucsd.edu or 858-246-4777.</p>\
-        <p><b>By participating in this research you are indicating that you are at least 18 years old, have read this consent form, and agree to participate in this research study. \
-        Please keep this consent form for your records.</b></p></span>"
+        <p><b>By clicking &quot;Next&quot;, you are indicating that you are at least 18 years old, have read this consent form and agree to participate in this research study. \
+          Please keep a copy of this page for your records.</b></p></span>"].join(' '),
     };
 
     instructionsHTML = {
       'str1': ["<span style='font-family: Times New Roman;font-size: 20px;'><b><p id='legal'>Instructions</p></b>",
-      "<p id='legal'>In this experiment, you will answer trivia questions.</p></span>"
+      "<p id='legal'>In this experiment, you will answer trivia questions. Please carefully read the instructions on the next page.</p></span>"
       ].join(' '),
-      'str2': ["<span style='font-family: Times New Roman;font-size: 20px;'><b><p id='legal'>Instructions</p></b>",
-        "<p id='legal'><p>You will read a couple of trivia questions and answer them. \
+      'str2': ["<span style='font-family: Times New Roman;font-size: 20px;'><b><p id='legal'>Instructions</p></b><p id='legal'><p>You will read a couple of trivia questions and answer them. \
           You can write the answer in the textbox provided. <b>In case you do not know the answer, \
           please type &quot;don\'t know&quot;.</b> \
             You may or may not encounter ill-formed questions which do not have correct answers if taken literally.</p>\
             <p>For instance, you might see the question &quot;Why was President Gerald Ford forced to resign his office?&quot; \
-            In fact, Gerald Ford was not forced to resign. <b>Please, type &quot;can\'t say&quot; for this type of question.</b></p></span>"]
+            In fact, Gerald Ford was not forced to resign. <b>Please, type &quot;can\'t say&quot; for this type of question. </b></p>\
+            <p>Click &quot;Next&quot; to begin. </p></span>"]
     };
 
 var consentMsg = {
@@ -76,8 +79,6 @@ var consentMsg = {
   pages: [
         consentHTML.str1,
         consentHTML.str2,
-        consentHTML.str3,
-        consentHTML.str4,
   ],
   show_clickable_nav: true
 };
@@ -106,7 +107,7 @@ var question1 = {
   type: jsPsychSurveyText,
   questions: [
     {
-      prompt: "<span style='font-family: Arial, sans-serif; font-size: 30px;'>Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?</span>",
+      prompt: "<span style='font-family: Arial, sans-serif; font-size: 25px;'>Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?</span>",
       placeholder: 'Type your answer into the text box',
       required: false
     }
@@ -117,7 +118,7 @@ var question2 = {
   type: jsPsychSurveyText,
   questions: [
     {
-      prompt: "<span style='font-family: Arial, sans-serif;font-size: 30px;'>How many animals of each kind did Moses take on the ark?</span>",
+      prompt: "<span style='font-family: Arial, sans-serif;font-size: 25px;'>How many animals of each kind did Moses take on the ark?</span>",
       placeholder: 'Type your answer into the text box',
       required: false
     }
@@ -128,7 +129,7 @@ var question3 = {
   type: jsPsychSurveyText,
   questions: [
     {
-      prompt: "<span style='font-family: Times New Roman;font-size: 30px;'>Please type 'Arial' into the textbox below.</span>",
+      prompt: "<span style='font-family: Times New Roman;font-size: 25px;'>Please type 'Arial' into the textbox below.</span>",
       placeholder: 'Type Arial here',
       required: false
     }
@@ -139,7 +140,7 @@ var question4 = {
   type: jsPsychSurveyText,
   questions: [
     {
-      prompt: "<span style='font-family: Times New Roman;font-size: 30px;'>Did Moses or Noah build the Ark?</span>",
+      prompt: "<span style='font-family: Times New Roman;font-size: 25px;'>Did Moses or Noah build the Ark?</span>",
       placeholder: 'Type answer here',
       required: false
     }
@@ -154,7 +155,7 @@ var instructions2 = {
       have impacted how you answered the trivia questions. If you have any questions about this study, please feel free to contact \
       one of the following researchers: Katherine Allen (k7allen@ucsd.edu), Kosta Boskovic (kboskovic@ucsd.edu), Jae Kwon (jwkwon@ucsd.edu),\
       Ashley Monteiro (asmonteiro@ucsd.edu), or Bria Long (brlong@ucsd.edu). \
-    Thank you again for your time and cooperation. <b>Please click next to save your data and be redirected back to Prolific.</b></span>"
+    Thank you again for your time and cooperation. <b>Please click &quot;Next&quot; to save your data and be redirected back to Prolific.</b></span>"
     ],
     show_clickable_nav: true,
   };

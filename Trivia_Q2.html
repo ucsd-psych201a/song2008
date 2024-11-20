@@ -9,57 +9,107 @@
  <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@2.0.0"></script>
  <script src="https://unpkg.com/@jspsych/plugin-instructions@2.0.0"></script>
  <script src="https://unpkg.com/@jspsych/plugin-survey-text@2.0.0"></script>
+ <script src="https://unpkg.com/@jspsych/plugin-external-html@1.1.3"></script>
  <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
  <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
-  
+ <style>
+  html {
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+</style>
 </head>
 <body>
 </body>
 <script>
 
-var jsPsych = initJsPsych(); 
+
+var jsPsych = initJsPsych();
 
 const subject_id = jsPsych.randomization.randomID(10);
               const filename = `${subject_id}.csv`;
 
-
-  // create the rest of the experiment
 var timeline = [];
 
-var instructions1= {
- type: jsPsychInstructions,
- pages: [
-    'Welcome to the experiment. Click next to begin.',
-    'IRB Consent form, Click the next button to agree.',
-    'You will now begin the study. Click next to read important instructions.',
-    '<h1>Instructions</h1> <p>You will read a couple of trivia questions and answer them. You can write the answer in the textbox provided. In case you do not know the answer, please type "don\'t know". You may or may not encounter ill-formed questions which do not have correct answers if taken literally.</p><p>For instance, you might see the question "Why was President Gerald Ford forced to resign his office?" In fact, Gerald Ford was not forced to resign. Please, type "can\'t say" for this type of question.'
-    ],
-    show_clickable_nav: true,
-  css: {
-    '.jspsych-instructions': {
-      'margin': '0 auto',              // Centers the container horizontally
-      'max-width': '800px',            // Sets the maximum width of the instructions
-      'padding': '40px',               // Adds padding around the content (increases space)
-      'line-height': '1.8',            // Increases the line height for better readability
-      'font-family': 'Times New Roman', // Sets a clean, legible font
-      'text-align': 'justify',         // Justifies the text, aligning both left and right
-      'background-color': '#f9f9f9',   // Optional: Adds a subtle background color for readability
-      'border-radius': '10px'          // Optional: Adds rounded corners for a more polished look
-    },
-    '.jspsych-instructions h1': {
-      'text-align': 'center',          // Centers the title (h1) at the top of the page
-      'margin-bottom': '20px'          // Adds spacing below the title
-    }
-  }
+
+// add consent pages
+consentHTML = {
+      'str1': ["<span style='font-family: Times New Roman;font-size: 20px;'><p id='legal'>Welcome to our study!</p>",
+      "<p id='legal'>In this experiment, you will answer trivia questions.</p><p> We expect this study to take approximately 5 minutes to complete, \
+      including the time it takes to read these instructions.</p></span>"
+      ].join(' '),
+      'str2': ["<span style='font-family: Times New Roman;font-size: 20px;'><b><p id='legal'>Consent to Participate</p></b>",
+        "<p id='legal'>You are being invited to participate in a research study titled &quot;Reproducibility of Psychological Science and Instruction.&quot; \
+          <p>This study is being done by Dr. Bria Long from UC San Diego and associated graduate students in Experimental Methods course. \
+          You were selected to participate in this study because you are an adult in the U.S. and have been a represented population in previous psychology studies. \
+          The purpose of this study is to better understand how well previously published studies in the psychological field replicate online and with different populations. \
+          Your participation in this research should last approximately 5-30 minutes.</p>  <p>If you agree to take part in this study, you may be asked to view a set of stimuli, \
+          including pictures, sounds, written text, or videos and then giving some responses via key-presses, verbally, or with paper-and-pencil. We may also observe your \
+          choices or preferences among an array of stimuli.  These stimuli will be taken directly from or closely adapted from studies that already exist in the published \
+          psychological literature. Stimuli will include, e.g., pictures of objects and human faces, audio and video clips, short text passages, etc. None of the stimuli \
+          will be disturbing, threatening, or offensive. The online and in-person experiments described in this protocol will take no more than 30 minutes. An example game \
+          you might play would be to click on an image on the screen that matches a word you hear being said out loud. Your total expected time commitment for this study is \
+          between 5-30 minutes, and is specified in the study description.</p> <p> Your participation in this study is completely voluntary and you can withdraw at any time. \
+          Choosing not to participate or withdrawing will result in no penalty or loss of benefits to which you are entitled. \
+          You are free to skip any question that you choose. </p>\ <p>We will not be asking for any personally identifying information, and we will handle responses as confidentially as possible. Your SONA or Prolific IDs will \
+            never be tied to your responses on this survey. However, we cannot guarantee the confidentiality of information transmitted over the Internet. To minimize this\
+            risk, data containing anything that might be personally identifiable (e.g. Prolific IDs or IP addresses) will be encrypted on transfer and storage and will only \
+            be accessible to qualified lab personnel. We will be keeping data collected as part of this experiment indefinitely. This anonymized data (containing neither Prolific \
+            IDs nor IP addresses) may be shared with the scientific community or with other participants to be used as stimuli in future studies. <p>If you have questions about this project or if you have a research-related problem, you may contact the researcher(s),  Dr. Bria Long, brlong@ucsd.edu. \
+        If you have any questions concerning your rights as a research subject, you may contact the UC San Diego Office of IRB Administration at irb@ucsd.edu or 858-246-4777.</p>\
+        <p><b>By clicking &quot;Next&quot;, you are indicating that you are at least 18 years old, have read this consent form and agree to participate in this research study. \
+          Please keep a copy of this page for your records.</b></p></span>"].join(' '),
+    };
+
+    instructionsHTML = {
+      'str1': ["<span style='font-family: Times New Roman;font-size: 20px;'><b><p id='legal'>Instructions</p></b>",
+      "<p id='legal'>In this experiment, you will answer trivia questions. Please carefully read the instructions on the next page.</p></span>"
+      ].join(' '),
+      'str2': ["<span style='font-family: Times New Roman;font-size: 20px;'><b><p id='legal'>Instructions</p></b><p id='legal'><p>You will read a couple of trivia questions and answer them. \
+          You can write the answer in the textbox provided. <b>In case you do not know the answer, \
+          please type &quot;don\'t know&quot;.</b> \
+            You may or may not encounter ill-formed questions which do not have correct answers if taken literally.</p>\
+            <p>For instance, you might see the question &quot;Why was President Gerald Ford forced to resign his office?&quot; \
+            In fact, Gerald Ford was not forced to resign. <b>Please, type &quot;can\'t say&quot; for this type of question. </b></p>\
+            <p>Click &quot;Next&quot; to begin. </p></span>"]
+    };
+
+var consentMsg = {
+  type: jsPsychInstructions,
+  pages: [
+        consentHTML.str1,
+        consentHTML.str2,
+  ],
+  show_clickable_nav: true
 };
+
+var instructionsMsg = {
+  type: jsPsychInstructions,
+  pages: [
+        instructionsHTML.str1,
+        instructionsHTML.str2,
+  ],
+  show_clickable_nav: true
+};
+
+
+// var instructions1 = {
+  //type: jsPsychInstructions,
+  //pages: [
+    //'Welcome to the experiment. Click next to read important instructions.',
+    //'You will now begin the study. Click next to read important instructions.',
+   // '<h1>Instructions</h1> <p>You will read a couple of trivia questions and answer them. You can write the answer in the textbox provided.<br>In case you do not know the answer, please type "don\'t know".<br>You may or may not encounter ill-formed questions which do not have correct answers if taken literally.</p><p>For instance, you might see the question "Why was President Gerald Ford forced to resign his office?"<br>In fact, Gerald Ford was not forced to resign. Please, type "can\'t say" for this type of question.</p>'
+  //],
+ // show_clickable_nav: true
+//};
 
 var question1 = {
   type: jsPsychSurveyText,
   questions: [
     {
-      prompt: "<span style='font-family: \"Brush Script MT\", cursive; font-size: 40px;'>Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?</span>",
+      prompt: "<span style='font-family: Brush Script MT; font-size: 25px;'>Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?</span>",
       placeholder: 'Type your answer into the text box',
-      required: true
+      required: false
     }
   ]
 };
@@ -68,9 +118,9 @@ var question2 = {
   type: jsPsychSurveyText,
   questions: [
     {
-      prompt: "<span style='font-family: \"Brush Script MT\", cursive; font-size: 40px;'>How many animals of each kind did Moses take on the ark?</span>",
+      prompt: "<span style='font-family: Brush Script MT;font-size: 25px;'>How many animals of each kind did Moses take on the ark?</span>",
       placeholder: 'Type your answer into the text box',
-      required: true
+      required: false
     }
   ]
 };
@@ -79,9 +129,9 @@ var question3 = {
   type: jsPsychSurveyText,
   questions: [
     {
-      prompt: "<span style='font-family: Arial, sans-serif;font-size: 30px;'>Please type 'Brush' into the textbox below.</span>",
+      prompt: "<span style='font-family: Times New Roman;font-size: 25px;'>Please type 'Brush' into the textbox below.</span>",
       placeholder: 'Type Brush here',
-      required: true
+      required: false
     }
   ]
 };
@@ -90,9 +140,9 @@ var question4 = {
   type: jsPsychSurveyText,
   questions: [
     {
-      prompt: "<span style='font-family: Arial, sans-serif;font-size: 30px;'>Did Moses or Noah build the Ark?</span>",
+      prompt: "<span style='font-family: Times New Roman;font-size: 25px;'>Did Moses or Noah build the Ark?</span>",
       placeholder: 'Type answer here',
-      required: true
+      required: false
     }
   ]
 };
@@ -100,28 +150,15 @@ var question4 = {
 var instructions2 = {
  type: jsPsychInstructions,
  pages: [
-    'You have now finished the experiment. Click next for important information.',
-    'Thank you for participating in our study on processing fluency. You were randomly assigned to a hard-to-read or easy-to-read font. We are interested in how the ease of reading the font may have impacted how you answered the trivia questions. If you have any questions about this study, please feel free to contact one of the following researchers: Katherine Allen (k7allen@ucsd.edu), Kosta Boskovic (kboskovic@ucsd.edu), Jae Kwon (jwkwon@ucsd.edu), Ashley Monteiro (asmonteiro@ucsd.edu), or Bria Long (brlong@ucsd.edu). Thank you again for your time and cooperation.' +
-    '<br>' 
+    "<span style='font-family: Times New Roman;font-size: 20px;'>Thank you for participating in our study on processing fluency.\
+      You were randomly assigned to a hard-to-read or easy-to-read font. We are interested in how the ease of reading the font may \
+      have impacted how you answered the trivia questions. If you have any questions about this study, please feel free to contact \
+      one of the following researchers: Katherine Allen (k7allen@ucsd.edu), Kosta Boskovic (kboskovic@ucsd.edu), Jae Kwon (jwkwon@ucsd.edu),\
+      Ashley Monteiro (asmonteiro@ucsd.edu), or Bria Long (brlong@ucsd.edu). \
+    Thank you again for your time and cooperation. <b>Please click &quot;Next&quot; to save your data and be redirected back to Prolific.</b></span>"
     ],
     show_clickable_nav: true,
-  css: {
-    '.jspsych-instructions': {
-      'margin': '0 auto',              // Centers the container horizontally
-      'max-width': '800px',            // Sets the maximum width of the instructions
-      'padding': '40px',               // Adds padding around the content (increases space)
-      'line-height': '1.8',            // Increases the line height for better readability
-      'font-family': 'Times New Roman', // Sets a clean, legible font
-      'text-align': 'justify',         // Justifies the text, aligning both left and right
-      'background-color': '#f9f9f9',   // Optional: Adds a subtle background color for readability
-      'border-radius': '10px'          // Optional: Adds rounded corners for a more polished look
-    },
-    '.jspsych-instructions h1': {
-      'text-align': 'center',          // Centers the title (h1) at the top of the page
-      'margin-bottom': '20px'          // Adds spacing below the title
-    }
-  }
-};
+  };
 
 const save_data = {
                 type: jsPsychPipe,
@@ -130,15 +167,17 @@ const save_data = {
                 filename: filename,
                 data_string: ()=>jsPsych.data.get().csv()
               };
-
+              
 var final_trial = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: `<p>You've finished the last task. Thanks for participating!</p>
-    <p><a href="https://app.prolific.com/submissions/complete?cc=C7ZNIQ5B">Click here to return to Prolific and complete the study</a>.</p>`,
+  stimulus: `<span style='font-family: Times New Roman;font-size: 20px;'><p>You've finished the last task. Thanks for participating!</p>
+    <p><a href="https://app.prolific.com/submissions/complete?cc=C1CHPUFB">Click here to return to Prolific and complete the study</a>.</p></span>`,
   choices: "NO_KEYS"
 }
- 
-timeline.push(instructions1);
+
+timeline.push(consentMsg, instructionsMsg);
+
+// timeline.push(consent, check_consent, instructions1);
 
 timeline.push(question1,question2,question3,question4); 
 
