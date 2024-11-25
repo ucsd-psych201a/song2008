@@ -123,12 +123,18 @@ Data will be downloaded and imported into R. We will clean the raw data using th
 ```
 
 ### Pilot Data Code
-```
+```{r}
+
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+install.packages("openxlsx")
+library(openxlsx)
 library(tidyverse)
+setwd('/Users/jaewoo1008/Desktop')
 
-pilot_data <- read_csv("PilotA.csv")
 
-# Filter data for the two conditions and count the "2" answers
+pilot_data <- read.xlsx("PilotA.xlsx")
+
+ # Filter data for the two conditions and count the "2" answers
 arial_easy <- pilot_data %>%
   filter(Condition == "Arial", Distorted == 2) %>%
   nrow()
@@ -160,6 +166,11 @@ z_value <- (proportion_arial - proportion_brush) / sqrt(p_pool * (1 - p_pool) * 
 p_value <- 2 * (1 - pnorm(abs(z_value)))
 ```
 
+```{r}
+#I get the warning with openxlsx when I render it, but I get the correct output of the results in r studoo
+
+```
+
 ### Pilot Data Results
 
 Proportion of "2" answers in Arial (easy): 0.5
@@ -170,6 +181,7 @@ Even though the effect was not statistically significant (due to small sample si
 our preliminary data/results indicated that more people fell for the Moses illusion
 in the easy condition compared to the hard condition (indicated by the proportions).
 
+```{r}
 library(ggplot2)
 
 proportions_data <- data.frame(
@@ -187,6 +199,54 @@ ggplot(proportions_data, aes(x = Condition, y = Proportion, fill = Condition)) +
   theme_minimal() +
   scale_fill_manual(values = c("Arial (Easy)" = "skyblue", "Brush (Hard)" = "salmon")) +
   guides(fill = FALSE)
+```
+
+### Pilot B
+
+```{r}
+
+setwd('/Users/jaewoo1008/Desktop')
+
+file_list <- list.files(pattern = "*.csv")
+
+# Read each CSV file and store them in a list
+csv_data_list <- lapply(file_list, read.csv)
+
+# Combine all CSV files into one data frame using rbind
+combined_data <- do.call(rbind, csv_data_list)
+
+# View the combined data (optional)
+head(combined_data)
+
+# Optionally, write the combined data to a new CSV file
+#write.csv(combined_data, "combined_data.csv", row.names = FALSE)
+
+brush_total <- sum(grepl("Brush", combined_data$response))
+arial_total <- sum(grepl("Arial", combined_data$response))
+
+brush_count <- 2
+arial_count <- 2
+
+# please note that for brush_count and arial_count I could not figure out how to write code to calculate so I counted the 2 instances manually
+
+p1 <- brush_count / brush_total
+p2 <- arial_count / arial_total
+
+p <- (brush_count + arial_count) / (brush_total + arial_total)
+
+z <- (p1 - p2) / sqrt(p * (1 - p) * (1 / brush_total + 1 / arial_total))
+z
+
+```
+
+```{r}
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+```
+
+```{r}
+# the average completion time for the study on Prolific was 2:24 minutes
+```
 
 ### Confirmatory analysis
 
