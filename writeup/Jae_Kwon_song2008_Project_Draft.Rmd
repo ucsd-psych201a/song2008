@@ -167,7 +167,7 @@ p_value <- 2 * (1 - pnorm(abs(z_value)))
 ```
 
 ```{r}
-#I get the warning with openxlsx when I render it, but I get the correct output of the results in r studoo
+#I get the warning with openxlsx when I render it, but I get the correct output of the results in r studio
 
 ```
 
@@ -227,7 +227,7 @@ arial_total <- sum(grepl("Arial", combined_data$response))
 brush_count <- 2
 arial_count <- 2
 
-# please note that for brush_count and arial_count I could not figure out how to write code to calculate so I counted the 2 instances manually
+#Also had to manually count the s. The merging made the data structure really weird.
 
 p1 <- brush_count / brush_total
 p2 <- arial_count / arial_total
@@ -245,7 +245,7 @@ p_value
 ```
 
 ```{r}
-# the average completion time for the study on Prolific was 2:24 minutes
+# Average completion time: 2:24
 ```
 
 ### Confirmatory analysis
