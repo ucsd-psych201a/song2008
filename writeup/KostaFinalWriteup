@@ -1,0 +1,270 @@
+---
+title: "Replication of Study 1 by Song & Schwartz (2008, Social Cognition)"
+author: "Kosta Boskovic (kboskovic@ucsd.edu)"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+format:
+  html:
+    toc: true
+    toc_depth: 3
+---
+
+<!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
+
+Project Paradigm Links (one for each condition):
+
+https://ucsd-psych201a.github.io/song2008/Trivia_Q1.html (easy condition)
+
+https://ucsd-psych201a.github.io/song2008/Trivia_Q2.html (difficult condition)
+
+## Introduction
+
+We are interested in how ease of processing fluency affects people's abilities to notice distortions in information and questions presented to them. We presented participants with a distorted question asking them how many of each animals Moses, rather than Noah, brought on the ark. We randomized participants into two conditions which varied based on the ease of reading the font of the question in order to test whether the finding that participants are less likely to fall for the Moses illusion in the hard-to-read font is correct. 
+
+Here is the link to the repo: https://github.com/ucsd-psych201a/song2008 
+
+Here is the link to the preregistration: https://osf.io/s9uqc
+
+
+## Methods
+
+### Power Analysis
+
+The original effect size was not reported. We computed the previous study's achieved power to be 59%. We conducted a power analysis and determined that to achieve 80% power, we should have a sample size of 52.
+
+### Planned Sample
+
+The sample size is of n = 52.
+
+### Materials
+
+This study will be conducted online and there will be no physical materials necessary.
+
+### Procedure	
+
+At the start of the experiment, participants will be given instructions on how to respond to trivia questions that they will see. The instructions were as follows: “You will a read couple of trivia questions and answer them. You can write the answer in the blank. In case you do not know the answer, please write 'don't know.' You may or may not encounter ill-formed questions which do not have correct answers if taken literally. For instance, you might see the question 'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question." The participants then answer two trivia questions, either in an easy-to-read font (Arial) or a hard-to-read font (Bush Script MT). The first question, a control question, asks: “Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?". The second question, the distorted question of interest, asks: “How many animals of each kind did Moses take on the Ark?".
+
+### Analysis Plan
+
+Any participant that does not complete the study (providing answers to both trivia questions) will be excluded. 
+For the distorted question, we will report the proportion of participants who responded "2" and the proportion of participants who responded "can't say" in both conditions (easy-to-read and hard-to-read fonts). We will also conduct z-tests for proportions to compare these proportions between the two conditions.
+For the control question, we will report the proportions of participants who responded "Switzerland" correctly, the proportion who responded a different country's name, the proportion who responded "don't know", and the proportion who responded "can't say" in both conditions. For all of which are applicable (i.e., participants provided that response in either condition), we will conduct z-tests for proportions to compare these proportions between the two conditions.
+
+**Clarify key analysis of interest here**  You can also pre-specify additional analyses you plan to do.
+The z-test of proportions comparing the proportions of "2" answers for the distorted question between the two conditions is the key analysis of interest.
+
+### Differences from Original Study
+
+The subject pool will be different. The original paper sampled undergraduate students who received course credit for their participation. Our replication will sample online users of the platform Prolific. We do not anticipate this difference to impact the results. Everything else in the experiment will be kept the same.
+
+### Methods Addendum (Post Data Collection)
+
+You can comment this section out prior to final report with data collection.
+
+#### Actual Sample
+The actual sample was n = 52. Two additional participants were excluded for not providing a response to every question.
+
+#### Differences from pre-data collection methods plan
+  Any differences from what was described as the original plan, or “none”.
+
+There are several differences from the original plan outlined in the earlier sections. First, the experiment was constructed on JSPsych, not Qualtrics. We added two questions to the experiment during the pilot stage. First, in order to know what condition each participant was in, we asked participants to either type "Arial" or "Brush" based on what condition we placed them in (easy to read or hard to read font, respectively). Next, we asked participants whether Noah or Moses built the ark as a test of prior knowledge to know whether they fell for the illusion.
+
+
+## Results
+
+
+### Data preparation
+
+	
+```{r include=F}
+library(readxl)
+# We manually entered the data into a spreadsheet, as we did for pilot A. For pilot B, we had concatenated the csv files downloaded from osf in R but had great trouble doing so and cleaning and analyzing the data given the format, so we chose to manually enter the data into the spreadsheet that I will now load into R.
+data <- read_excel("C:\\Users\\Owner\\OneDrive\\Documents\\R\\Stat201A\\stats_replication_data.xlsx")
+```
+
+### Confirmatory analysis
+
+The z-test of proportions comparing the proportions of "2" answers for the distorted question between the two conditions is the key analysis of interest. This is because we would like to see if the rate of producing this incorrect response which indicates the Moses Illusion will differ based on the difference in processing fluency between the two fonts in the two conditions.
+
+```{r}
+# confirmatory test comparing the proportion of participants who responded "2" to the distorted question in the two conditions. One participant was excluded from this analysis (and the subsequent exploratory analyses on the distorted question) because they failed to show prior knowledge that Noah built the boat and not Moses. The code for this determination is below. 
+
+library(dplyr)
+
+brush_total <- data %>%
+  filter(Condition == "Brush", grepl("Noah", Knowledge)) %>%
+  nrow()
+
+arial_total <- data %>%
+  filter(Condition == "Arial", grepl("Noah", Knowledge)) %>%
+  nrow()
+
+brush_count <- sum(data$Distorted == "2.0" & data$Condition == "Brush")
+arial_count <- sum(data$Distorted == "2.0" & data$Condition == "Arial")
+
+p1 <- brush_count/brush_total
+p2 <- arial_count/arial_total
+
+p <- (brush_count + arial_count)/(brush_total + arial_total)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total + 1/arial_total))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 92% (23/25) of participants in the easy-to-read font condition responded "2" to the distorted question, compared to 69% (18/26) of participants in the hard-to-read font condition, z = 2.05, p < .05.
+```
+
+
+*Side-by-side graph with original graph is ideal here*
+```{r}
+# The original paper does not include a graph. I will make a graph showing the proportion of participants who responded "2" to the distorted question in the two conditions in the two studies.
+library(ggplot2)
+
+data2 <- data.frame(
+  Study = rep(c("Original", "Replication"), each = 2),
+  Condition = rep(c("Easy-to-Read", "Hard-to-Read"), times = 2),
+  Proportion = c(15/17, 8/15, p2, p1)
+)
+
+ggplot(data2, aes(x = Study, y = Proportion, fill = Condition)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(
+    title = "Proportion of Participants Falling for the Moses Illusion Across Studies and Conditions",
+    x = "Study",
+    y = "Proportion of Participant Responding '2' to the Distorted Question"
+  ) +
+  scale_fill_manual(values = c("Easy-to-Read" = "skyblue", "Hard-to-Read" = "salmon")) +
+  theme_minimal() +
+  theme(
+    text = element_text(size = 12),
+    legend.title = element_blank()
+  )
+
+```
+
+
+### Exploratory analyses
+
+Any follow-up analyses desired (not required).  
+
+```{r}
+# I will now conduct a z-test of the proportions of participants who responded "can't say" to the distorted question in the two conditions.
+brush_count2 <- sum(data$Distorted == "Can't say" & data$Condition == "Brush")
+arial_count2 <- sum(data$Distorted == "Can't say" & data$Condition == "Arial")
+
+p1 <- brush_count2/brush_total
+p2 <- arial_count2/arial_total
+
+p <- (brush_count2 + arial_count2)/(brush_total + arial_total)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total + 1/arial_total))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 4% (1/25) of participants in the easy-to-read condition responded "can't say" to the distorted question, compared to 12% (3/26) in the hard-to-read condition, z = 1.00, p > 0.32.
+
+```
+```{r}
+# The goal of the previous test was to compare the proportion of participants in the two conditions who correctly noticed the distortion. However, participants provided responses other than "Can't say" which indicated they noticed the distortion. For example, multiple participants responded that Moses did not build an ark. Thus, I am conducting a test to compare the proportion of participants in the two conditions who responded "Can't say" or gave an alternative response indicating they noticed the distortion. This was counted manually.
+
+brush_count3 <- 7
+arial_count3 <- 1
+
+p1 <- brush_count3/brush_total
+p2 <- arial_count3/arial_total
+
+p <- (brush_count3 + arial_count3)/(brush_total + arial_total)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total + 1/arial_total))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 4% (1/25) of participants in the easy-to-read condition provided a response indicating they noticed the distortion, compared to 27% (7/26) of participants in the hard-to-read condition, z = 2.25, p < .05.
+```
+```{r}
+# I will now conduct a z-test comparing the proportion of people who responded "Switzerland" to the control question in the two conditions. 
+
+brush_total2 <- sum(data$Condition == "Brush")
+arial_total2 <- sum(data$Condition == "Arial")
+
+brush_count4 <- sum(data$Control == "Switzerland" & data$Condition == "Brush")
+arial_count4 <- sum(data$Control == "Switzerland" & data$Condition == "Arial")
+
+p1 <- brush_count4/brush_total2
+p2 <- arial_count4/arial_total2
+
+p <- (brush_count4 + arial_count4)/(brush_total2 + arial_total2)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total2 + 1/arial_total2))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 50% (13/26) of participants in the easy-to-read condition correctly responded "Switzerland" to the control question, compared to 58% (15/26) of participants in the hard-to-read condition, z = 0.56, p > .05.
+```
+```{r}
+# I will now conduct a z-test comparing the proportion of people who responded a country or region other than Switzerland to the control question in the two conditions. This will be counted manually.
+
+brush_count5 <- 7
+arial_count5 <- 10
+p1 <- brush_count5/brush_total2
+p2 <- arial_count5/arial_total2
+
+p <- (brush_count5 + arial_count5)/(brush_total2 + arial_total2)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total2 + 1/arial_total2))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 38% (10/26) of participants in the easy-to-read condition responded to the control question with a country or region other than Switzerland, compared to 27% (7/26) of participants in the hard-to-read condition, z = 0.89, p > 0.5.
+```
+```{r}
+# I will now conduct a z-test comparing the proportion of people who responded that they didn't know the answer to the control question in the conditions.
+
+brush_count6 <- sum(data$Control == "Don't know" & data$Condition == "Brush")  + sum(data$Control == "I don't Know" & data$Condition == "Brush")
+arial_count6 <- sum(data$Control == "Don't know" & data$Condition == "Arial")
+
+p1 <- brush_count6/brush_total2
+p2 <- arial_count6/arial_total2
+
+p <- (brush_count6 + arial_count6)/(brush_total2 + arial_total2)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total2 + 1/arial_total2))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 12% of participants in both conditions (3/26 in each) responded that they didn't know the answer to the control question, z = 0, p = 1.
+```
+
+
+## Discussion
+
+### Summary of Replication Attempt
+
+The primary interest of this replication was to re-test whether ease of fluency impacts people's ability to notice a distortion in a question they are asked. We found that the result of the original study that more participants incorrectly responded "2" to the distorted question in the easy-to-read font than the hard-to-read font indeed replicated. This indicates that greater ease of processing can be harmful in situations in which distortions are present. Conversely, more difficult processing, as in the hard-to-read font, can be beneficial in these situations as people may be forced to slow down and digest the information they are provided more carefully, increasing the probability that they notice the distortion.
+
+### Commentary
+
+Regarding the distorted question, we did not replicate the result that significantly more participants correctly responded "Can't say" in the hard-to-read than the easy-to-read font. However, this was due to multiple things. First, very few participants (4 across both conditions) responded this. Relatedly, several participants provided responses other than "Can't say" which indicated that they noticed the distortion, such as pointing out that Moses did not build the ark. Thus, our additional exploratory analysis in which we pooled responses such as these with "Can't say" responses replicated the result that more people in the hard-to-read condition noticed the illusion than in the easy-to-read condition. This reinforces the replicated finding that harder ease of processing can be beneficial in noticing distortions.
+
+The results of the control question vary between the original study and this replication. Whereas the original study found that participants in the easy-to-read condition answered the control question with greater accuracy and were less likely to respond with another country or that they didn't know, we did not find significant differences between the two conditions for any of these analyses. It is unclear what drove these differences. Perhaps the finding that, conversely to when a distortion is present, ease of processing fluency correlates with greater accuracy in responding to undistorted questions is not a true effect and was the result of an underpowered original study. It is also possible that the difference in the online vs. in-person mode of the experiment could have had an effect here.
+
+### Design Overview
+One factor (difficulty of reading font) was manipulated.
+There was one measure (the answer to a trivia question) which was repeated once.
+Between-participants. Half get an easy to read font and half get a hard to read font.
+A within-subjects design could have impacted the results. Participants may have not been affected as much by low processing or high processing fluency when the two conditions were one after the other.
+I think that they could have reduced demand characteristics more. The hard to read font they chose is so unusual that I think participants could have figured out that that must be the manipulation, leading them to spend more time on the question and decreasing their rate of falling for the Moses illusion. I would have chosen a font that's harder to read than Arial but not quite as drastic as Bush Script.
+I wonder if they were right to give an example of a distorted question that should be answered "can't say", rather than just telling participants to answer "can't say" for a question where that would be applicable. This alerted them even more to that eventuality. Also, it would have been interesting to see more trials and see if the rate of falling for the illusion more or less with more trials. 
+One significant confound is they assume that people know that the answer to the distorted question if it wasn't distorted is 2. I don't think Noah bringing two of each animal on the ark is THAT common knowledge to people though. The fact that they only posed two questions (one control, one distorted) limits generalizability.
+
