@@ -1,0 +1,348 @@
+---
+title: "Replication of Study 1 by Song & Schwartz (2008, Social Cognition)"
+author: "Jae Kwon"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+format:
+  html:
+    toc: true
+    toc_depth: 3
+---
+
+<!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
+
+[Github Repo Paper](https://github.com/ucsd-psych201a/song2008/blob/main/original_paper/songschwarz2008.pdf)
+
+[Github Repo Write Up](https://github.com/ucsd-psych201a/song2008/tree/main/writeup)
+
+Project Paradigm Links (one for each condition):
+
+https://ucsd-psych201a.github.io/song2008/Trivia_Q1.html (easy condition)
+
+https://ucsd-psych201a.github.io/song2008/Trivia_Q2.html (difficult condition)
+
+[**Pre-Registration**](https://osf.io/s9uqc)
+
+## Introduction
+
+The chosen research article pertains to my research interests extensively. First,
+my research background up to this point has been on the illusory truth effect, where
+repetition increases belief, and this occurs because processing fluency is facilitated during the process. People often rely on their heuristics, such as fluency, to make numerous decisions. Additionally, people often mistakenly think whatever is retrieved/processed faster is more true or legitimate. Hence, I believe basic mechanisms such as fluency is important to understand given the consequences of our behavior. The results of this experiment is promising because if we interrupt our initial quick-and-easy processing fluency, it leaves room for us to use our prior knowledge and make sounder decisions. Finally, given my current research interests in misinformation and how people's beliefs are formed and corrected, understanding fluency and its influence on belief will be useful.
+
+In order to replicate the experiment, we will need a couple of trivia statements to use. After establishing the trivia statements, we would need to manipulate the processing fluency through choosing an 'easy to read' font and 'hard to read' font. We would need to pretest the fonts to ensure that participants find them easy and difficult enough. Then, participants would be randomly assigned to the 'easy' condition and 'hard condition,' where they would answer the trivia statements. Finally, we would compare their error rates on the Moses illusion. We will be using Qualtrics to build and distribute the survey.
+
+I believe this is a pretty straightforward experiment, where I don't anticipate too many challenges (at least I hope!), especially given how robust the basic fluency effects are (e.g., there's research showing that facilitated fluency leads to increased belief even for implausible statements). Although, one challenge I do anticipate is that the Moses illusion example may not be as familiar to the younger generation (which could be our sample), where they don't know what the correct or incorrect answer is.
+
+## Methods
+
+### Main Experiment
+
+Note: Before conducting the main experiment, the authors pretested the stimuli
+to ensure that there was a perceptual difference (processing fluency) between
+the two conditions (easy to read font vs hard to read font).
+
+Fifty two prolific participants participated for monetary compensation. They
+were randomly assigned to an easy- vs. difficult-to-read condition. The instructions (modeled after Erickson & Mattson, 1981) read, “You will a read couple of trivia questions and answer them. You can write the answer in the blank. In case you do not know the answer, please write 'don't know.' You may or may not encounter ill-formed questions which do not have correct answers if taken literally. For instance, you might see the question 'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question.“
+
+Depending on condition, participants were presented with two questions printed in a hard-to-read (Bush Script MT) or easy-to-read font (Arial). The first (control) question did not have a distortion. It read, “Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?“ (Switzerland). The second, distorted question read, “How many animals of each kind did Moses take on the Ark?“ (taken from Erickson & Mattson, 1981). This question replaces the correct actor, Noah, with Moses and should be answered “can't say.“ Answering “2“ indicates the Moses illusion. Participants provided their answers in an empty text box. Finally, to 
+test their prior biblical knowledge, we asked them, "Did Moses or Noah build
+the Ark?"
+
+### Power Analysis
+
+The original effect size was not reported.We computed the original study's achieved power to be 59%. We conducted a power analysis and determined that to achieve 80% power, we should have a sample size of 52.
+
+### Planned Sample
+
+n = 52 (prolific users)
+
+### Materials
+
+"'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question.“ --> Pilot Question
+
+“Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?“ (Switzerland). --> Undistorted version
+
+“How many animals of each kind did Moses take on the Ark?“
+(taken from Erickson & Mattson, 1981). --> Distorted version.
+
+These are direct quotes from the research article.
+
+### Procedure	
+
+Described in the "Main Experiment" section
+
+### Analysis Plan
+
+For our statistical test, we will use the z-test for proportions (i.e., test of proportions) to compare the proportions of two groups- easy-to-read vs. difficult-to-read font conditions. Specifically, for the distorted question (Moses Question), the proportion of participants who responded "2" and the proportion of participants who responded "can't say" in both conditions (easy vs hard font) will be reported. We will also report the proportion of "Switzerland"and "can't say" for the undistorted question in both conditions in the easy vs hard font conditions. The analyses will allow us to observe if low processing fluency helps us answer distorted questions correctly (while the low processing fluency could lead to more incorrect answers for the undistorted questions).
+
+Participants who do not complete the full study will be excluded from the analysis.
+
+**Clarify key analysis of interest here**  You can also pre-specify additional analyses you plan to do.
+
+The z-test of proportions comparing the proportions of "2" answers (i.e., fell for the illusion) for the distorted question between the easy-to-read condition vs hard-to-read condition will be the key analysis of interest. This will allow us to determine if low processing fluency attenuates the Moses Illusion (i.e., scrutinize information more and respond more correctly).
+
+### Differences from Original Study
+
+Our sample will be different than the original paper. Our sample will be online participants (prolific). The original study used undergraduates.
+
+Setting will be different. Ours will be online, their study was in person.
+
+The original paper didn't have any exclusion criteria, but we will exclude participants who do not complete the full study.
+
+### Methods Addendum (Post Data Collection)
+
+You can comment this section out prior to final report with data collection.
+
+#### Actual Sample
+
+52 prolific participants. One subject was exlcuted from the confirmatory analysis
+due to insufficient prior knowledge
+
+#### Differences from pre-data collection methods plan
+  Any differences from what was described as the original plan, or “none”.
+
+"None"
+
+## Results
+
+### Data preparation
+
+Data will be downloaded and imported into R. We will clean the raw data using the Tidyverse package in R (participants will be deidentified). Once cleaned, we will run the planned analysis.
+
+## Unexpected Events
+
+Our jspsych code wasn't set up properly to track the condition of the participants,
+which made combining/importing the responses into a single file difficult. Therefore, we had to manually enter all of our data points into a single file.
+We will work on this next time. 
+
+### Confirmatory analysis
+
+As mentioned before, the key analysis of interest is the z-test of proportions comparing the proportions of "2" answers for the distorted question between the two font conditions. This analysis would allow us to determine whether there is a difference in the rate of producing the incorrect response (Moses Illusion) based on the difference in processing fluency between the two font conditions.
+
+### Exploratory analyses
+
+We conducted the z-test of proportions comparing the proportions of "can't say"
+answers for the distorted question responses between the two font conditions.
+This analysis will allow us to determine how many participants in each conditions
+caught the illusion and provided the correct answer.
+
+###Confirmatory Analysis
+
+As mentioned above, we had trouble combining the responses into a single file
+using jpsych and r, so we had to manually create a single file with all of the 
+participant responses.
+
+```{r}
+
+library(readr)
+library(tidyverse)
+
+data <- read_csv("stats_replication_data.csv")
+
+brush_total <- data %>%
+  filter(Condition == "Brush", grepl("Noah", Knowledge)) %>%
+  nrow()
+
+arial_total <- data %>%
+  filter(Condition == "Arial", grepl("Noah", Knowledge)) %>%
+  nrow()
+
+brush_count <- sum(data$Distorted == "2" & data$Condition == "Brush")
+arial_count <- sum(data$Distorted == "2" & data$Condition == "Arial")
+
+p1 <- arial_count/arial_total
+p2 <- brush_count/brush_total
+
+p <- (brush_count + arial_count)/(brush_total + arial_total)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total + 1/arial_total))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+#Participants were more likely to answer '2' in the easy-to-read font condition (92%, 23/25) than in the difficult-to-read font condition (69%, 18/26), z = 2.05, p = .04.
+
+```
+
+### Graph
+
+The original paper didn't include a graph. Additionally, the original paper
+had a table that was not replicable because it included information that was
+not part of the experiment. So I will include a graph showing the results
+of the confirmatory analysis below:
+
+```{r}
+
+proportions <- c(p1, p2)  
+conditions <- c("Arial", "Brush")  
+barplot(proportions, 
+        names.arg = conditions,  
+        col = c("lightblue", "lightgreen"), 
+        main = "Proportion of '2' Responses to Distorted Question",  
+        ylab = "Proportion",  
+        ylim = c(0, 1)) %>% 
+text(x = 1, 
+     y = p1 + 0.05,  
+     labels = paste("Z =", round(z, 3), "\nP-value =", round(p_value, 3)),  
+     col = "black",  
+     cex = 0.8)  
+```
+
+### Exploratory Analyses
+
+```{r}
+#z-test of proportions of participants who responses cant say to the distorted question between the two conditions (answering cant' say indicates they noticed the distortion)
+
+brush_total2 <- data %>%
+  filter(Condition == "Brush", grepl("Noah", Knowledge)) %>%
+  nrow()
+
+arial_total2 <- data %>%
+  filter(Condition == "Arial", grepl("Noah", Knowledge)) %>%
+  nrow()
+
+brush_count2 <- sum(data$Distorted == "Can't say" & data$Condition == "Brush")
+arial_count2 <- sum(data$Distorted == "Can't say" & data$Condition == "Arial")
+
+p1 <- arial_count2/arial_total2
+p2 <- brush_count2/brush_total2
+
+p <- (brush_count2 + arial_count2)/(brush_total2 + arial_total2)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total2 + 1/arial_total2))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 4% (1/25) of participants in the easy-to-read condition responded "can't say" to the distorted question, compared to 12% (3/26) in the hard-to-read condition, z = 1.00, p = 0.32 
+
+```
+
+```{r}
+
+#Now, I will look at the proportion of participants in both conditions who either answered "cant say" or provided a response indicating they noticed the distortion (e.g., moses din't build the ark). This was counted manually
+
+brush_count3 <- 7
+arial_count3 <- 1
+p1 <- brush_count3/brush_total
+p2 <- arial_count3/arial_total
+p <- (brush_count3 + arial_count3)/(brush_total + arial_total)
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total + 1/arial_total))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 4% (1/25) of participants in the easy-to-read condition provided a response indicating they noticed the distortion, compared to 27% (7/26) of participants in the hard-to-read condition, z = 2.25, p = 0.02
+
+```
+
+```{r}
+
+# z-test comparing the proportion of people who responded "Switzerland" to the control question (non-distorted) in the two conditions.
+
+brush_total2 <- sum(data$Condition == "Brush")
+arial_total2 <- sum(data$Condition == "Arial")
+
+brush_count4 <- sum(data$Control == "Switzerland" & data$Condition == "Brush")
+arial_count4 <- sum(data$Control == "Switzerland" & data$Condition == "Arial")
+
+p1 <- brush_count4/brush_total2
+p2 <- arial_count4/arial_total2
+
+p <- (brush_count4 + arial_count4)/(brush_total2 + arial_total2)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total2 + 1/arial_total2))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 50% (13/26) of participants in the easy-to-read condition correctly responded "Switzerland" to the control question, compared to 58% (15/26) of participants in the hard-to-read condition, z = 0.56, p = 58
+
+```
+
+```{r}
+# z-test comparing the proportion of people who responded a country or region other than Switzerland to the control question. Also counted manually
+
+brush_count5 <- 7
+arial_count5 <- 10
+p1 <- brush_count5/brush_total2
+p2 <- arial_count5/arial_total2
+
+p <- (brush_count5 + arial_count5)/(brush_total2 + arial_total2)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total2 + 1/arial_total2))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 38% (10/26) of participants in the easy-to-read condition responded to the control question with a country or region other than Switzerland, compared to 27% (7/26) of participants in the hard-to-read condition, z = 0.89, p = 0.38.
+```
+
+```{r}
+
+# z-test of proportion comparing the proportion of people who responded they didn't know the answer to the control question in both conditions.
+
+brush_count6 <- sum(data$Control == "Don't know" & data$Condition == "Brush")  + sum(data$Control == "I don't Know" & data$Condition == "Brush")
+arial_count6 <- sum(data$Control == "Don't know" & data$Condition == "Arial")
+
+p1 <- brush_count6/brush_total2
+p2 <- arial_count6/arial_total2
+
+p <- (brush_count6 + arial_count6)/(brush_total2 + arial_total2)
+
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total2 + 1/arial_total2))
+z
+
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# 12% of participants in both conditions (3/26 in each) responded that they didn't know the answer to the control question, z = 0, p = 1.
+
+```
+
+## Discussion
+
+In our experiment, participants were significantly more likely to answer "2" to the distorted question when the font was easy to read compared to when it was hard to read (confirmatory analysis). That is, we were able to replicate the original findings to our confirmatory analysis. However, we were not able t0 replicate the exploratory analysis from the original study (proportion of cant' say answers). Additionally,, we were not able to replicate the original findings regarding the control question (non-distorted). We found null results (no sig difference between the font conditions), but the original study found significant differences between the two conditions. 
+
+### Summary of Replication Attempt
+
+As mentioned before, the primary goal of this replication project was to re-test whether easy of fluency (processing ease) influences people's ability to notice a distortion within a question. The original study found that people were more likely to incorrectly answer "2" to the distorted question when the font was easy to read. We were able to replicate this finding. However, we were not able to replicate the exploratory analysis (more people noticing the distortion when the font is hard to read by answering cant say). The significant result to the confirmatory analysis indicates that when ease of processing is fast and comfortable, we go with our gut feeling when making decisions. However, when ease of processing is difficult and slow, we are more likely to use skeptical/deeper processing when making decisions. 
+
+### Commentary
+
+First, we were not able to replicate the exploratory analysis from the original study - more participants answering "can't say" to the distorted question when the font is hard to read compared to when it is easy to read. This could be due to couple of things. First, the number of people who answered "cant say" was very limited in both of the conditions. Second, participants provided answers other than "can't say" that indicated their correct knowledge (moses wasn't the one with the ark). When we pooled these responses together, we found significant results (more people noticed the distortion in the hard to read condition than the easy to read condition). Such findings indicate that easy of processing influences our decision making.
+
+We were not able to replicate the significant findings to the control question. Unlike the distorted question, the original study found that more people answered correctly to the control question when the font was easy to read compared to when it was difficult to read (i.e., opposite effect on accuracy compared to the distorted question). However, our findings showed no significant differences in the accuracy of the responses between the two conditions. Given the small sample size and the unreported effect size in the original study, the study could have been underpowered. Additionally, the difference in results may have been due to the difference in the composition of the sample (online vs in person; time difference - 2008 vs 2024; etc).
+
+Finally, we couldn't implement one recommendation by Dr. Norbert Schwarz. He recommended we present the instructions with the questions every single time (because the original study did so when it was done in pen and paper). However, we were unable to implement it because the study was conducted online (combination of: lack of knowledge on jspsych coding, lack of space on the computer screen, font size and location, etc)
+
+## Average Time
+
+Average completion time was 2:24 minutes. 
+
+### Design Choices
+
+One --> processing fluency via font (easy vs hard to read)
+
+There was one measure (answer to the trivia questions) which was repeated once
+
+Between participants (randomly assigned to easy vs hard condition)
+
+A within subjects design could have impacted the results. Participants may not have been affected as much or as distinctly by low processing vs high processing fluency
+when the two conditions were presented one after the other.
+
+I believe they could have reduced demand characteristics more. The hard to read font
+the researchers chose could have given away the manipulation of the experiment because
+of how unusual it is, leading them to spend more time on the question and decreasing the rate of the Moses Illusion. They could have chosen a font that is harder than 'Ariel' but not as hard/unusual as 'brush script'
+
+I'm not sure if it was appropriate to give an example of a distorted question that should be answered "cant say" (rather than just telling participants to answer 'cant say' for a
+question where that would be applicable because it could make participants more alert to the font and question format in the subsequent experimental trials (main experiment).
+
+I also believe that they could have used more trials, participants, and stimuli
+to increase the validity and generalizability of the results. A major potential
+confound would be prior knowledge (whether people know the correct answer to the
+Moses question)
