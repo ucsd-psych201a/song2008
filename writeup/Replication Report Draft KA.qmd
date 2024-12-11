@@ -16,189 +16,186 @@ format:
 
 ## Introduction
 
-The Moses Illusion is a classic example of the metacognitive effects of fluency. Fluency has been a strong interest of mine since undergrad, and its applications relate to my research interests in understanding how we remember and believe misinformation. Until now, I have only learned methods of inducing fluency through repetition. I chose this paper (specifically experiment 1) because it instead induces fluency (i.e., ease of processing) through visual representation (e.g., easy vs. hard to read text fonts), and it can be applied to online misinformation studies in my future research endeavors.
+This cognitive research paper is a perceptual investigation of fluency, specifically *processing fluency,* which is the ease at which information is processed in our cognitive system. In this study, the researchers question if lowering processing fluency can cause us to use more deliberate thinking and recognize errors in an intuitive question (e.g., *How many animals of each kind did Moses take on the Ark?*). In one experiment, the authors sought to answer this question by having undergraduate participants answer two trivia questions (distorted and non-distorted) in either an easy-to-read or hard-to-read font. We are attempting to replicate their finding that, when font is easy-to-read, we are more likely to answer distorted questions incorrectly because of high processing fluency.
 
-<https://github.com/ucsd-psych201a/song2008.git>
+Repository: <https://github.com/ucsd-psych201a/song2008.git>
+
+Pre-registration: <https://osf.io/s9uqc>
 
 ## Methods
 
-### Power Analysis
+### Power Analysis - Sample Size Determination
 
-The authors did not report an effect size. A post-hoc power analysis indicated their experiment achieved 60% power. Based on a prior power analysis, a sample size of 52 is required to achieve 80% power. This is a feasible sample size.
+The authors did not report an effect size. A post-hoc power analysis indicated their experiment achieved 60% power. Based on a prior power analysis, a sample size of 52 was required to achieve 80% power. This was a feasible sample size.
 
 ### Planned Sample
 
-Pilot: The pilot sample will be 10 participants.
-
-Main Experiment: Fifty two Prolific users (26 in each condition) will participate for monetary compensation.
+Fifty two Prolific users (26 in each condition) participated for \$1.00 in compensation for 5 minutes.
 
 ### Materials
 
-Stimuli: The stimuli set will consist of 2 sets each containing two questions written in two contrasting fonts. One question will contain a distortion while the other will not. "Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?" (A: Switzerland) is the undistorted version, while "How many animals of each kind did Moses take on the Ark?" (A: can’t say) is the distorted version.
+The stimuli consisted of 2 sets each containing two questions written in two contrasting fonts. One question contained a distortion while the other did not. "Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?" (A: Switzerland) is the non-distorted version, while "How many animals of each kind did Moses take on the Ark?" (A: can’t say) is the distorted version.
 
-Links to jsPsych experiments: 
+**Links to jsPsych experiments:**
 
-Hard-to-read condition: https://ucsd-psych201a.github.io/song2008/Trivia_Q2.html
+[Hard-to-read condition](https://ucsd-psych201a.github.io/song2008/Trivia_Q2.html)
 
-Easy-to-read condition: https://ucsd-psych201a.github.io/song2008/Trivia_Q1.html
+[Easy-to-read condition](https://ucsd-psych201a.github.io/song2008/Trivia_Q1.html)
 
 ### Procedure
 
-Pilot: We will test the readability of the different fonts as a part of the pilot for the main experiment. Within the main experiment pilot, we will have Five Prolific users will read the sentence “Switzerland is famous for cuckoo clocks, banks and pocket knives“ printed in grey Brush Script MT font with font size 12; another five will read the same sentence in black Arial font with font size 12. We will ask our pilot participants to report the ease they can read the text on a scale from 1 (very difficult) to 7 (very easy) as well as any errors they find in the experiment.
+This replication experiment was conducted online through a JSPsych survey experiment on Prolific. Participants were randomly assigned to the easy vs hard-to-read conditions. They either saw the easy or hard to read text font versions of the two trivia questions. They were also informed that some of the questions they encountered might not have right answers and were encouraged to answer by selecting ‘can’t say’ when this happened. Then, the participants answered the non-distorted question followed by the distorted question. Afterwards, they answered a biblical knowledge check question.
 
-Main experiment: This experiment will be conducted online through a JSPsych survey experiment on Prolific. Participants will be randomly assigned to the easy vs hard-to-read conditions. They will either see the easy to read text font versions of the two questions or the hard to read versions of the trivia questions. They will also be informed that some of the questions they encounter might not have right answers and encouraged to answer by selecting ‘can’t say’ when this happens.
+**Specific instructions given to each participant before the trials:**
 
-Specific instructions given to each participant: “You will a read couple of trivia questions and answer them. You can write the answer in the blank. In case you do not know the answer, please write 'don't know.' You may or may not encounter ill-formed questions which do not have correct answers if taken literally. For instance, you might see the question 'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question.“
+“You will read a couple of trivia questions and answer them. You can write the answer in the textbox provided. **In case you do not know the answer, please type "don't know".** You may or may not encounter ill-formed questions which do not have correct answers if taken literally.
+
+For instance, you might see the question "Why was President Gerald Ford forced to resign his office?" In fact, Gerald Ford was not forced to resign. **Please, type "can't say" for this type of question.**
+
+Click "Next" to begin."
 
 ### Analysis Plan
 
-Pilot: We will run a t-test to confirm the intended variation in ease of reading between the two fonts by comparing the ratings of the two fonts. This is important because fluency is the key manipulation.
-
-Main Experiment: In line with the original paper, we will analyze the data using Z scores comparing the proportion of "2" and "can't say" responses in the easy vs. hard-to-read distorted condition. We will also report the proportion of "Switzerland" and "can't say" for the undistorted question in the easy vs hard-to-read conditions. This will allow us to see if low processing fluency helps us answer distorted questions correctly but perhaps cause us to respond more incorrectly to nondistorted questions.
+In line with the original paper, we will analyze the data using Z scores comparing the proportion of "2" and "can't say" responses in the easy vs. hard-to-read distorted condition. This will allow us to see if low processing fluency helps us answer distorted questions correctly.
 
 The original researchers did not include information on cleaning or exclusion rules. We will exclude participants who do not complete the study.
 
-**Clarify key analysis of interest here** The key analysis of interest here is the comparison of the proportions of "2" answers for the distorted question between the easy vs hard-to-read conditions (Z-scores). This will allow us to determine if low processing fluency helps us scrutinize information more and respond more correctly.
+**The key analysis of interest here is the comparison of the proportions of "2" answers for the distorted question between the easy vs hard-to-read conditions (Z-scores).** This will allow us to determine if low processing fluency helps us scrutinize information and respond more correctly.
 
 ### Differences from Original Study
 
-Pilot differences: Our pilot sample will not consist of just undergraduates.
-
-Main experiment differences: Instead of running the experiment with undergraduate participants in person, 32 Prolific users will complete this experiment online.
+We used online instead of in-person data collection, recruited prolific users instead of undergraduate students, added a knowledge check, and wrote the the important instructions in bold font instead of spanning them across trials.
 
 ### Methods Addendum (Post Data Collection)
 
-You can comment this section out prior to final report with data collection.
+We had participants who gave intelligible answers other than "can't say" indicating they caught the Moses distortion in the question and who failed the knowledge check, so we had to modify our analysis plan to include these participants appropriately and exclude the one participant who failed the knowledge check from the main analysis.
 
 #### Actual Sample
 
-Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+We collected a sample of 52 Prolific users. We did not collect demographic data. We excluded one participant from the key confirmatory analysis who failed the knowledge check.
 
 #### Differences from pre-data collection methods plan
 
-Any differences from what was described as the original plan, or “none”.
+We further specified our plan to include participants who gave intelligible answers other than "can't say" indicating they caught the Moses distortion in the question and participants who failed the knowledge check (only from the key analysis because we cannot include this as evidence of the Moses illusion if they didn't have the prior knowledge to begin with).
+
+**Difficulties:** We were not able to set up the JSpsych code to assign participants to conditions within the data structure which made it impossible to filter out the data into columns that were readable in r. Because of this, we had to manually enter all of our data points into a single file and relied on participants to track condition which was disguised as an "attention check."
 
 ## Results
 
-### Data preparation
+### Data Preparation & Analysis
 
-Data will be downloaded and imported into R, deidentified, and cleaned using Tidyverse prior to analysis.
+Data was downloaded and imported into R, deidentified, and cleaned using Tidyverse prior to analysis.
 
-```{r include=F}
+```{r echo=T}
 ### Data Preparation
 
 #### Load Relevant Libraries and Functions
+library(tidyverse)
+library(dplyr)
+library(readr)
+library(ggplot2)
 
 #### Import data
+data <- read_csv("~/Documents/GitHub/song2008/data/stats_replication_data.csv")
+View(data)
 
 #### Data exclusion / filtering
 
+brush_total <- data %>%
+  filter(Condition == "Brush", grepl("Noah", Knowledge)) %>%
+  nrow()
+
+arial_total <- data %>%
+  filter(Condition == "Arial", grepl("Noah", Knowledge)) %>%
+  nrow()
+
 #### Prepare data for analysis - create columns etc.
-```
-### Pilot A Code
 
-```{r}
-# loading libraries
-library(tidyverse)
-
-# reading data
-library(readr)
-PilotA <- read_csv("~/Documents/GitHub/song2008/data/PilotA.csv")
-View(PilotA)
-
-# preparing data
-arial_easy <- PilotA %>%
-  filter(Condition == "Arial", Distorted == 2) %>%
-  nrow()
-
-brush_hard <- PilotA %>%
-  filter(Condition == "Brush", Distorted == 2) %>%
-  nrow()
-
-# z-test for proportion of "2" answers
-prop_difficult_2 <- mean(arial_easy == "2")
-prop_easy_2 <- mean(brush_hard == "2")
-
-# Calculate the total counts for each condition
-arial_total <- PilotA %>%
-  filter(Condition == "Arial") %>%
-  nrow()
-
-brush_total <- PilotA %>%
-  filter(Condition == "Brush") %>%
-  nrow()
-
-# Calculate proportions
-proportion_arial <- arial_easy / arial_total
-proportion_brush <- brush_hard / brush_total
-
-# Overall proportion for pooling
-p_pool <- (arial_easy + brush_hard) / (arial_total + brush_total)
-
-# Z-test for two proportions
-z_value <- (proportion_arial - proportion_brush) / sqrt(p_pool * (1 - p_pool) * (1 / arial_total + 1 / brush_total))
-
-# Calculate p-value (two-tailed)
-p_value <- 2 * (1 - pnorm(abs(z_value)))
-
-library(ggplot2)
-
-proportions <- data.frame(
-  Condition = c("Easy-to-read", "Difficult-to-read"),
-  Proportion = c(proportion_arial, proportion_brush)
-)
-
-ggplot(proportions, aes(x = Condition, y = Proportion, fill = Condition)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  ylim(0, 1) +
-  labs(title = "Pilot A",
-       x = "Condition",
-       y = "Proportion of '2' Answers") +
-  theme_minimal()
+brush_count <- sum(data$Distorted == "2" & data$Condition == "Brush")
+arial_count <- sum(data$Distorted == "2" & data$Condition == "Arial")
 
 ```
+
 ### Confirmatory analysis
 
-We are interested in testing if font readability (fluency) alters frequency of the Moses illusion. So, using a z-score approach, we want to know if this rate of proportion differs based on processing fluency. The key analysis of interest here is the z-score comparison of the proportions of "2" answers for the distorted question between the two conditions (easy vs. hard to read fonts).
+```{r, echo=T}
+#### creating proportions
 
-*Side-by-side graph with original graph is ideal here*
+p1 <- arial_count/arial_total
+p2 <- brush_count/brush_total
 
-###Pilot results
+p <- (brush_count + arial_count)/(brush_total + arial_total)
 
-The proportion of "2" answers in the easy-to-read condition (Arial) = 0.5
-Proportion of "2" answer in the hard-to-read condition (Brush MT)  =  0.33
-Z-value: 0.59, p = 0.56
+#### z test for proportion of "2" answers
 
-This pilot data is promising. Even in this small sample, we see that based on the proportions, fewer pilot participants fell for the Moses illusion in the difficult-to-read condition than the easy-to-read condition. Albeit underpowered and non-statistically significant due to the small sample size, I am hopeful that this experiment will replicate. Additionally, we now have confirmation that our online experiments work. 
+z <- (p1 - p2)/sqrt(p*(1-p)*(1/brush_total + 1/arial_total))
+z
 
-### Exploratory analyses
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+```
 
-Any follow-up analyses desired (not required).
+```{r, echo=T}
+#### visualizing data via graph
+
+proportions <- c(p1, p2)  
+conditions <- c("Arial", "Brush")  
+barplot(proportions, 
+        names.arg = conditions,  
+        col = c("lightblue", "lightgray"),
+        ylab = "Proportion",  
+        ylim = c(0, 1)) %>% 
+text(x = 1, 
+     y = p1 + 0.05,  
+     labels = paste("Z =", round(z, 3), "\nP-value =", round(p_value, 3)),  
+     col = "black",  
+     cex = 0.8)  
+```
+
+We wanted to test if font readability (fluency) altered frequency of the Moses illusion. So, using a z-score approach, we wanted to know if this rate of proportion differs based on processing fluency. The key analysis of interest here was the z-score comparison of the proportions of "2" answers for the distorted question between the two conditions (easy vs. hard to read fonts).
+
+We found the same effect as the original experimenters did -- participants were more likely to answer '2' in the easy-to-read font condition (92%, 23/25) than in the difficult-to-read font condition (69%, 18/26), z = 2.05, p = .04.
+
+**The original experimenters only included a table of their proportion results (no graph) which are reported here for their confirmatory analysis:**
+
+Easy to read (distorted - Moses): 15/17 (88%) - answered "2"
+
+Hard to read (distorted - Moses): 8/15 (53%) - answered "2"
 
 ## Discussion
 
 ### Summary of Replication Attempt
 
-Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.
+In this replication experiment, we recreated Song & Schwarz (2008) experiment 1 online using JSpsych and collected new data online via Prolific. Our key statistical test to replicate was the comparison of the proportions of "2" answers for the distorted question between the easy vs hard-to-read conditions (Z-scores). Based on the data analysis presented here, we successfully replicated the main claim of the original study - low processing fluency (hard-to-read font) attenuates the Moses illusion - from Song & Schwarz (2008) based on this confirmatory analysis.
 
 ### Commentary
 
-Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt. None of these need to be long.
+This result likely arose because fluency encourages intuitive thinking. When things are easy to process, we are more confident and quick to answer questions based on heuristics that can be subject to error when we are presented with trick questions (like switching Noah for Moses). Hard-to-read font, on the other hand, creates disfluency, which requires us to slow down and read things more carefully before answering, allowing us to catch these distortions and respond correctly.
 
 ## Design Overview
 
-- One factor was manipulated (processing fluency via font readability).
+-   One factor was manipulated (processing fluency via font readability).
 
-- One measure was taken (answer to trivia questions).
+-   One measure was taken (answer to trivia questions).
 
-- This study used a between-participants design.
+-   This study used a between-participants design.
 
-- Yes, their responses to the trivia questions were measured twice per participant. (They answered 2 questions, one distorted and one non distorted).
+-   Yes, their responses to the trivia questions were measured twice per participant. (They answered 2 questions, one distorted and one non distorted).
 
-- Being exposed to both font types could have revealed the purpose of the study and contaminate responses. I think it would be hard to accomplish this study within-participants without risking demand characteristics. However, I think adding more trials could help conceal the purpose if they chose to 
+-   Being exposed to both font types could have revealed the purpose of the study and contaminate responses. I think it would be hard to accomplish this study within-participants without risking demand characteristics. However, I think adding more trials could help conceal the purpose if they chose to do so.
 
-- It is unclear whether they made an effort to reduce demand characteristics, but likely not. Reading the trivia question in Brush Script could be enough to reveal the purpose because we don't see that font used much. 
+-   It is unclear whether they made an effort to reduce demand characteristics, but likely not. Reading the trivia question in Brush Script could be enough to reveal the purpose because we don't see that font used much.
 
-- One critique of this design is the limited trials. I think this study would be more interesting with the distorted Moses question embedded in a set of 20-30 trials. I also think this might be difficult to generalize to today's world because cultural knowledge has changed so much. More distorted questions should be used mixed in with nondistorted questions in a larger trial set. A potential confound could be prior (biblical) knowledge. This could impact processing fluency and was not accounted for in the study. 
+-   One critique of this design is the limited trials. I think this study would be more interesting with the distorted Moses question embedded in a set of 20-30 trials. I also think this might be difficult to generalize to today's world because cultural knowledge has changed so much. More distorted questions should be used mixed in with nondistorted questions in a larger trial set. A potential confound could be prior (biblical) knowledge. This could impact processing fluency and was not accounted for in the study.
 
-- This study has limited generalizability for a few reasons. One, the sample was 32 Psychology undergraduates, so we cannot generalize much beyond this population. Two, without testing a range of distorted questions, it might be hard to generalize beyond the Moses illusion itself. 
+-   This study has limited generalizability for a few reasons. One, the sample was 32 Psychology undergraduates, so we cannot generalize much beyond this population. Two, without testing a range of distorted questions, it might be hard to generalize beyond the Moses illusion itself.
+
+## Author Contribution Statement
+
+**Katherine Allen:** software (lead); conceptualization (lead); visualization (supporting); methodology (equal); writing (equal); validation (equal)
+
+**Kosta Boskovic:** formal analysis (co-lead); investigation (lead); visualization (co-lead); writing (equal); methodology (equal); conceptualization (supporting); validation (equal)
+
+**Jae Kwon:** formal analysis (co-lead); software (supporting); writing (equal); methodology (equal); visualization (co-lead); conceptualization (supporting); validation (equal)
+
+**Ashley Monteiro:** project administration (lead); data curation (lead); visualization (supporting); conceptualization (supporting); methodology (equal); validation (equal)
